@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="1.2" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd">
+ <managed-bean>
+  <managed-bean-name>loginMB</managed-bean-name>
+  <managed-bean-class>br.com.fiap.web.managerbean.LoginMB</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <navigation-rule>
+ 	<navigation-case>
+ 		<from-outcome>gerente</from-outcome>
+ 		<to-view-id>/pages/adm/page.xhtml</to-view-id>
+ 		<redirect/>
+ 	</navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+ 	<navigation-case>
+ 		<from-outcome>cliente</from-outcome>
+ 		<to-view-id>/pages/client/cadastro-parametro-calculo.xhtml</to-view-id>
+ 		<redirect/>
+ 	</navigation-case>
+ </navigation-rule>
+ 
+ <navigation-rule>
+ 	<navigation-case>
+ 		<from-outcome>login</from-outcome>
+ 		<to-view-id>/pages/login.xhtml</to-view-id>
+ 		<redirect/>
+ 	</navigation-case>
+ </navigation-rule>
+ <application>
+  <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+ </application>
+</faces-config>
