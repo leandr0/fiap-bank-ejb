@@ -1,0 +1,25 @@
+<persistence>
+	<persistence-unit name="fiap">
+		<jta-data-source>java:/fiap</jta-data-source>
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>br.com.fiap.domain.entity.Agencia</class>
+		<class>br.com.fiap.domain.entity.Banco</class>
+		<class>br.com.fiap.domain.entity.Conta</class>
+		<class>br.com.fiap.domain.entity.Correntista</class>
+		<class>br.com.fiap.domain.entity.Endereco</class>
+		<class>br.com.fiap.domain.entity.Funcionario</class>
+		<class>br.com.fiap.domain.entity.Seguranca</class>
+		<class>br.com.fiap.domain.entity.TipoConta</class>
+		<class>br.com.fiap.domain.entity.TipoTransacao</class>
+		<class>br.com.fiap.domain.entity.Transacao</class>
+		<class>br.com.fiap.domain.entity.Usuario</class>
+		<class>br.com.fiap.domain.entity.Credito</class>
+		
+		<properties>
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+		</properties>
+		
+	</persistence-unit>
+</persistence>
