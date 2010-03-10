@@ -3,7 +3,6 @@
 	<name>fiap-bank-web</name>
 	<comment></comment>
 	<projects>
-		<project>fiap-bank-domain</project>
 		<project>fiap-bank-ejb</project>
 	</projects>
 	<buildSpec>

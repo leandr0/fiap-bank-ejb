@@ -3,9 +3,6 @@
     <wb-module deploy-name="fiap-bank-web">
         <wb-resource deploy-path="/" source-path="/WebContent"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <dependent-module archiveName="fiap-bank-domain.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/fiap-bank-domain/fiap-bank-domain">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="fiap-bank-ejb.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/fiap-bank-ejb/fiap-bank-ejb">
             <dependency-type>uses</dependency-type>
         </dependent-module>
