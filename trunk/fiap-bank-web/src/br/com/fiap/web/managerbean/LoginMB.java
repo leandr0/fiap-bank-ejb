@@ -3,6 +3,7 @@
  */
 package br.com.fiap.web.managerbean;
 
+import javax.ejb.EJB;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.naming.Context;
@@ -24,9 +25,10 @@ public class LoginMB {
 	
 	private LoginModel model;
 	
-	/*@EJB(mappedName = "fiap-bank-ear/login/remote")*/
+	@EJB
 	private LoginLocal business;
 	
+	/*(mappedName = "fiap-bank-ear/login/remote")*/
 	/*private HttpSession session;*/
 	
 	public LoginMB(){
@@ -41,8 +43,9 @@ public class LoginMB {
 			LoginContext loginContext = new LoginContext("fiap-bank-policy", new AppCallbackHandler(form.getLogin(), form.getSenha().toCharArray()));
 			loginContext.login();
 			
-*/			Context context = new InitialContext();
-			business = (LoginLocal)context.lookup("fiap-bank-ear/login/local");
+			Context context = new InitialContext();
+			business = (LoginLocal)context.lookup("fiap-bank-ear/login/local");*/
+			
 			Seguranca seguranca = business.logar(form.getLogin(), form.getSenha());
 			
 			if(seguranca != null && seguranca.getPerfil().equals("GERENTE"))
