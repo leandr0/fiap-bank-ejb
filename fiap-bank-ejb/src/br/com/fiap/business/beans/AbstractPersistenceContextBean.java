@@ -12,6 +12,6 @@ import javax.persistence.PersistenceContext;
  */
 public abstract class AbstractPersistenceContextBean {
 
-	@PersistenceContext(name = "fiap")
+	@PersistenceContext(unitName = "fiap")
 	EntityManager entityManager;
 }
