@@ -9,7 +9,7 @@ import javax.ejb.Remote;
 import javax.ejb.Stateful;
 
 import org.apache.commons.lang.StringUtils;
-import org.jboss.annotation.security.SecurityDomain;
+import org.jboss.security.annotation.SecurityDomain;
 
 import br.com.fiap.business.interfaces.local.AbrirContaLocal;
 import br.com.fiap.business.interfaces.remote.AbrirContaRemote;

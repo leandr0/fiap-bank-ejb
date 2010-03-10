@@ -10,7 +10,7 @@ import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
-import org.jboss.annotation.security.SecurityDomain;
+import org.jboss.security.annotation.SecurityDomain;
 
 import br.com.fiap.business.interfaces.local.ConsultarPedidoCreditoLocal;
 import br.com.fiap.business.interfaces.remote.ConsultarPedidoCreditoRemote;

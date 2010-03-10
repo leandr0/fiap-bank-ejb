@@ -11,7 +11,7 @@ import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.Query;
 
-import org.jboss.annotation.security.SecurityDomain;
+import org.jboss.security.annotation.SecurityDomain;
 
 import br.com.fiap.business.interfaces.local.AvaliarPedidosCreditoLocal;
 import br.com.fiap.business.interfaces.remote.AvaliarPedidosCreditoRemote;

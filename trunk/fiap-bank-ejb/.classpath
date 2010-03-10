@@ -2,23 +2,19 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="test"/>
-	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="var" path="JBOSS_HOME"/>
-	<classpathentry kind="var" path="JBOSS_HOME/client/jboss-annotations-ejb3.jar"/>
-	<classpathentry kind="var" path="JBOSS_HOME/client/jboss-ejb3x.jar"/>
-	<classpathentry kind="var" path="JBOSS_HOME/client/jboss-j2ee.jar" sourcepath="/JBOSS_HOME"/>
-	<classpathentry kind="var" path="JBOSS_HOME/client/jbossall-client.jar" sourcepath="/JBOSS_HOME"/>
-	<classpathentry kind="var" path="JBOSS_HOME/client/jnp-client.jar" sourcepath="/JBOSS_HOME"/>
-	<classpathentry kind="var" path="JBOSS_HOME/client/ejb3-persistence.jar"/>
-	<classpathentry kind="var" path="JBOSS_HOME/server/ejb/lib/ejb3-persistence.jar"/>
-	<classpathentry kind="var" path="JBOSS_HOME/server/ejb/lib/hibernate-annotations.jar"/>
-	<classpathentry kind="var" path="JBOSS_HOME/server/ejb/lib/hibernate-entitymanager.jar"/>
-	<classpathentry kind="var" path="JBOSS_HOME/server/ejb/lib/hibernate3.jar"/>
-	<classpathentry kind="var" path="JBOSS_HOME/server/ejb/lib/commons-logging.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.6.0_16">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="var" path="JBOSS_HOME"/>
+	<classpathentry kind="var" path="JBOSS_HOME/client/antlr.jar"/>
+	<classpathentry kind="var" path="JBOSS_HOME/client/jboss-ejb3-common-client.jar"/>
+	<classpathentry kind="var" path="JBOSS_HOME/client/jboss-ejb3-core-client.jar"/>
+	<classpathentry kind="var" path="JBOSS_HOME/client/jboss-ejb3-security-client.jar"/>
+	<classpathentry kind="var" path="JBOSS_HOME/client/jbossall-client.jar" sourcepath="/JBOSS_HOME"/>
+	<classpathentry kind="var" path="JBOSS_HOME/client/jnp-client.jar" sourcepath="/JBOSS_HOME"/>
+	<classpathentry kind="lib" path="lib/commons-lang-2.4.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
