@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+		
+		<head>
+			<script type="text/javascript" src="/notafacil/resources/js/jquery/jquery.min.js"></script>
+			<script type="text/javascript" src="/notafacil/resources/js/nota-facil/nota-facil.js"></script>
+			
+			<script type="text/javascript" src="/notafacil/resources/js/jquery/jquery.maskedinput-1.1.4.pack.js"></script>
+			<script type="text/javascript" src="/notafacil/resources/js/jquery/positionFooter.jQuery.js"></script>
+			<script type="text/javascript" src="/notafacil/resources/js/jquery/jquery.textinput.focus.colorise.js"></script>
+			<script type="text/javascript" src="/notafacil/resources/js/jquery/jquery.load.js"></script>						
+			<script type="text/javascript" src="/notafacil/resources/js/jquery/jquery.corner.js"></script>
+			<script type="text/javascript" src="/notafacil/resources/js/jquery/jquery.validate.js"></script>
+			<script type="text/javascript" src="/notafacil/resources/js/jquery/jquery.maskMoney.0.2.js"></script>
+			<script type="text/javascript" src="/notafacil/resources/js/jquery/jquery.dimensions.min.js"></script>
+			<script type="text/javascript" src="/notafacil/resources/js/jquery/jquery.gradient.js"></script>
+			
+			
+			<script type="text/javascript" src="/notafacil/resources/js/nota-facil/nota-facil-common.js"></script>
+			<script type="text/javascript" src="/notafacil/resources/js/nota-facil/template.js"></script>
+			<script type="text/javascript" src="/notafacil/resources/js/dados-mestres/dados-mestre-tipo-de-imposto.js"></script>
+			
+			<script type="text/javascript" src="/notafacil/resources/js/nota-fiscal/cabecalho.js"></script>				
+			<script type="text/javascript" src="/notafacil/resources/js/nota-fiscal/nota-fiscal-imposto.js"></script>
+			<script type="text/javascript" src="/notafacil/resources/js/nota-fiscal/nota-fiscal-detalhamento.js"></script>
+			<script type="text/javascript" src="/notafacil/resources/js/nota-fiscal/nf-referenciadas.js"></script>
+			
+			<script type="text/javascript" src="/notafacil/resources/js/seguranca/seguranca-usuario.js"></script>
+																												
+			<link rel="stylesheet" type="text/css" href="/notafacil/resources/css/style.css" />
+			<link rel="stylesheet" type="text/css" href="/notafacil/resources/css/jquery.load.css" />
+			
+
+													
+		<title>
+			Nota Fácil - 
+			<ui:insert name="title">
+			</ui:insert>
+		</title>
+							
+	</head> 
+	<body>
+	<ui:define name="body">			 	<div class="header" id="header"  style="width: 100%">
+	 	<h:form prependId="false">
+	 		<link rel="shortcut icon" href="/notafacil/resources/img/png/ico.png"></link>
+	 		<div>
+				<div class="logo-produto"></div>
+				<span class="header-info"><h:outputText escape="false" value="#{sessionScope['info_ambiente']}" /></span>
+				<div class="header-menu">
+					<span class="header-menu-item">
+		 				<a4j:commandButton action="#{sg_alterar_senha_mb.inicializar}" id="img-alterar-senha" alt="Alterar Senha" 
+		 				image="/resources/img/gif/chave.gif" 
+		 				reRender="panel-tool-alterar-senha"
+		 				oncomplete="Richfaces.showModalPanel('seguranca-panel-alterar-senha');"></a4j:commandButton>
+		 				<label for="img-alterar-senha">Alterar Senha</label>
+			 		</span>
+					<span class="header-menu-item">
+		 				<a4j:commandButton action="home" alt="Página Inicial" image="/resources/img/gif/home.gif"></a4j:commandButton>
+		 				<label for="img-pag-inicial">Página Inicial</label>
+			 		</span>
+			 		<span class="header-menu-item">
+		 				<h:graphicImage id="img-pag-inicial" alt="Usuário Logado" url="/resources/img/gif/user_loggin.gif"/>
+		 				<label for="img-logged-user"><h:outputText value="#{sessionScope['user'].nomeUsuario}" /></label>
+			 		</span>
+			 		<span class="header-menu-item" style="padding-top:3px">
+			 			<a4j:commandLink 
+							title="logout"
+							onclick="Richfaces.showModalPanel('seguranca-panel-logout');"
+							value="[Logout]">
+						</a4j:commandLink>
+			 		</span>
+		 		</div>
+	 		</div>
+	 	</h:form>
+	 	</div>
+		<div id="menu" style="width: 100%;">
+			<a4j:form>										<rich:toolBar width="100%" itemSeparator="line" >
+					<rich:dropDownMenu>
+						<f:facet name="label">
+							<h:outputLabel value="Nota Fiscal"></h:outputLabel>
+						</f:facet>
+						<rich:menuItem
+								value="Painel"
+								submitMode="ajax"
+								action="#{pnl_notas_fisciais_mb.iniciar}"
+								onclick="this.disabled=true"
+								oncomplete="this.disabled=false"/>
+						<rich:menuItem
+								value="Data Primer NFe"
+								submitMode="ajax"
+								onclick="window.open('/notafacil/seguranca/nfe-auth.jsp','nfe')"
+								oncomplete="this.disabled=false"/>		
+					</rich:dropDownMenu>
+					<rich:dropDownMenu disabled="#{!login_mb.userKey}">
+						<f:facet name="label">
+							<h:outputLabel value="Dados Mestres"></h:outputLabel>
+						</f:facet>
+							<rich:menuItem
+								value="Empresas"
+								submitMode="ajax" 
+								action="#{dm_empresa_mb.iniciar}"
+								onclick="this.disabled=true"
+								oncomplete="this.disabled=false"/>						
+						<rich:menuSeparator/><!--		
+						<rich:menuItem
+							value="Tipo de Nota Fiscal"
+							action="#{dm_tipo_nf_mb.iniciar}"
+							submitMode="ajax"
+							onclick="this.disabled=true"
+							oncomplete="this.disabled=false"/>
+						<rich:menuSeparator/>
+						--><rich:menuItem
+							value="Natureza de Operação"
+							action="#{dm_op_natureza_mb.init}"
+							submitMode="ajax"
+							onclick="this.disabled=true;showLoad();"
+							oncomplete="this.disabled=false;hideLoad();"/>
+						<rich:menuSeparator />
+						<rich:menuGroup value="Impostos">							
+							<rich:menuItem value="Tipo de Imposto"
+								submitMode="ajax"
+								onclick="this.disable=true;showLoad();"
+								action="#{dm_tipo_imposto_mb.init}"	
+								oncomplete="hideLoad();showListaTipoDeImposto();"
+								/>														
+							<rich:menuSeparator/>
+							<rich:menuGroup value="Simples Nacional">
+								<rich:menuItem value="Alíquotas"
+												submitMode="ajax"
+												onclick="showLoad();"
+												action="#{dm_simples_nacional_aliquota_mb.init}" />
+								<rich:menuSeparator/>
+								<rich:menuItem value="Faturamento Mensal"
+												submitMode="ajax"
+												onclick="showLoad();"
+												action="#{dm_simples_nacional_fat_mb.init}" />
+							</rich:menuGroup>
+							<rich:menuSeparator/>
+							<rich:menuGroup value="Alíquotas">
+								<rich:menuItem value="ICMS"
+									submitMode="ajax"
+									onclick="this.disable=true;showLoad();"
+									action="#{dm_icms_mb.init}"	
+									oncomplete="this.disabled=false;hideLoad();">						
+								</rich:menuItem>
+								<rich:menuItem value="IPI"
+									submitMode="ajax"
+									onclick="this.disable=true;showLoad();"
+									action="#{dm_ipi_mb.init}"	
+									oncomplete="this.disabled=false;hideLoad();">						
+								</rich:menuItem>
+								<rich:menuItem value="PIS"
+									submitMode="ajax"
+									onclick="this.disable=true;showLoad();"
+									action="#{dm_pis_mb.init}"	
+									oncomplete="this.disabled=false;hideLoad();">						
+								</rich:menuItem>
+								<rich:menuItem value="COFINS"
+									submitMode="ajax"
+									onclick="this.disable=true;showLoad();"
+									action="#{dm_cofins_mb.init}"	
+									oncomplete="this.disabled=false;hideLoad();">						
+								</rich:menuItem>																					
+							</rich:menuGroup>							
+						</rich:menuGroup>							
+						<rich:menuSeparator/>
+						<rich:menuItem value="Material"
+							submitMode="ajax"
+							action="#{dm_material_MB.init}"
+							onclick="this.disabled=true;showLoad();"
+							oncomplete="showInit();hideLoad();this.disabled=false"/>
+						<rich:menuSeparator />
+						<rich:menuItem value="Parceiro"
+							submitMode="ajax"
+							onclick="this.disabled=true;showLoad();"
+							action="#{dm_parceiro_mb.init}"
+							oncomplete="hideLoad();this.disabled=false"/>
+						/>
+						<rich:menuSeparator />
+						<rich:menuItem value="Mensagens Adicionais"
+							submitMode="ajax"
+							onclick="this.disable=true;showLoad();"
+							oncomplete="hideLoad();"
+							action="#{dm_msg_adicionais_mb.init}"
+						/>																																													
+					</rich:dropDownMenu >
+					<rich:dropDownMenu >
+						<f:facet name="label">
+							<h:outputLabel value="Segurança"></h:outputLabel>
+						</f:facet>
+							<rich:menuItem disabled="#{!login_mb.userAdm}"
+								value="Cadastrar Usuários"
+								submitMode="ajax" 
+								action="#{sg_cadastro_usuario_mb.inicializar}"
+								onclick="this.disabled=true"
+								oncomplete="this.disabled=false"/>	
+					</rich:dropDownMenu > 
+				 </rich:toolBar>			</a4j:form>		</div>
+		<div id="body" style="width:100%; margin-top: 10px; ">			
+			<ui:insert name="body">						 									</ui:insert>
+			
+			<div id="boxes">
+				<div id="dialog" class="window"></div>
+				<div id="mask" class="mask-opacity">
+				</div>
+			</div>
+
+			<!--<div id="footer" style="width: 99%;">						
+				<div class="footer" style="display: table; width: 100%" >
+					<div class="logo-site">
+					</div>
+					<div class="logo-rodape">
+					</div>																		 
+				</div>
+			</div>-->
+		</div>
+		<ui:include src="/seguranca/panel-modal/seguranca-panel-alterar-senha.xhtml" />
+		<ui:include src="/seguranca/panel-modal/seguranca-panel-logout.xhtml" />
+		</ui:define>	</body>
+</html>
