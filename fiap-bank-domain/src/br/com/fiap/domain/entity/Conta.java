@@ -51,6 +51,15 @@ public class Conta implements EntityBasic{
 	
 	@Column(name="CODIGO_CONTA")
 	private String codigoConta;
+	
+	
+	public Conta() {}
+	
+	public Conta(Seguranca seguranca) {
+		this.seguranca = seguranca;
+		this.seguranca.setConta(this);
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * @see br.com.fiap.domain.entity.EntityBasic#getId()

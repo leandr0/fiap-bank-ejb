@@ -25,7 +25,7 @@ public class Seguranca implements EntityBasic{
 	@Column(name = "SENHA", nullable = false)
 	private String senha;
 	
-	@Column(name = "FRASE_SECRETA", nullable = false)
+	@Column(name = "FRASE_SECRETA")
 	private String fraseSecreta;
 
 	@OneToOne(mappedBy = "seguranca")
