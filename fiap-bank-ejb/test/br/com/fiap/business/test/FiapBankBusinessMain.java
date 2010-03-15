@@ -158,7 +158,7 @@ public class FiapBankBusinessMain {
 		usuario.setEndereco(endereco);
 		correntista.setUsuario(usuario);
 
-		conta = abrirConta.abrirConta(correntista);
+		conta = abrirConta.abrirConta(correntista,agencia);
 
 		Seguranca seguranca = new Seguranca();
 
@@ -168,6 +168,6 @@ public class FiapBankBusinessMain {
 
 		conta.setSeguranca(seguranca);
 
-		abrirConta.adicionarSenha(conta);
+		abrirConta.adicionarSenha(conta,seguranca);
 	}
 }
