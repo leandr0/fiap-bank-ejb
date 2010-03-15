@@ -60,7 +60,7 @@ public class LoginBean extends AbstractPersistenceContextBean implements
 			query.setParameter("login", login).setParameter("senha", senha);
 
 			seguranca = (Seguranca) query.getSingleResult();
-
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
