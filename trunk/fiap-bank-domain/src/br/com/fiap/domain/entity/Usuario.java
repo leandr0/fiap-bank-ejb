@@ -40,6 +40,16 @@ public class Usuario implements EntityBasic{
 	@JoinColumn(name = "ENDERECO_ID")
 	private Endereco endereco;
 
+	@OneToOne(mappedBy = "usuario")
+	private Correntista correntista;
+	
+	public Usuario() {}
+	
+	public Usuario(Endereco endereco) {
+		this.endereco = endereco;
+		this.endereco.setUsuario(this);
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * @see br.com.fiap.domain.entity.EntityBasic#getId()
@@ -94,5 +104,13 @@ public class Usuario implements EntityBasic{
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+
+	public Correntista getCorrentista() {
+		return correntista;
+	}
+
+	public void setCorrentista(Correntista correntista) {
+		this.correntista = correntista;
 	}
 }

@@ -41,6 +41,15 @@ public class Correntista implements EntityBasic{
 	@JoinColumn(name = "CONTA_ID",nullable = false)
 	private Conta conta;
 
+	public Correntista() {}
+	
+	public Correntista(Usuario usuario) {
+		this.usuario = usuario;
+		this.usuario.setCorrentista(this);
+		/*this.conta = conta;
+		this.conta.setCorrentista(this);*/
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * @see br.com.fiap.domain.entity.EntityBasic#getId()
