@@ -17,7 +17,7 @@ import br.com.fiap.web.model.LoginModel;
  * @author leandro.goncalves
  *
  */
-public class LoginMB {
+public class LoginMB extends ManagerBean{
 
 	private LoginForm form;
 	
@@ -37,11 +37,15 @@ public class LoginMB {
 			
 			Seguranca seguranca = business.logar(form.getLogin(), form.getSenha());
 			
-			if(seguranca != null && seguranca.getPerfil().equals("GERENTE"))
+			if(seguranca != null && seguranca.getPerfil().equals("GERENTE")){
+				setAttributeInSession("agencia", seguranca.getFuncionario().getAgencia());
 				return "gerente";
+			}
 			
-			else if(seguranca != null && seguranca.getPerfil().equals("CLIENTE"))
+			else if(seguranca != null && seguranca.getPerfil().equals("CLIENTE")){
+				setAttributeInSession("conta", seguranca.getConta());
 				return "cliente";
+			}
 			
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -52,13 +56,6 @@ public class LoginMB {
 	public String logout(){
 		
 		try{
-		
-			ExternalContext context = FacesContext.getCurrentInstance()
-									.getExternalContext();
-			
-			context.getSessionMap().clear();
-			
-			HttpSession session = ( HttpSession ) context.getSession( true );
 			
 			session.removeAttribute("j_username");
 			session.removeAttribute("j_password");
