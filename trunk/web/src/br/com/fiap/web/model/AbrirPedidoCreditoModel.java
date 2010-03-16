@@ -13,6 +13,9 @@ public class AbrirPedidoCreditoModel {
 
 	private Credito credito;
 
+	public AbrirPedidoCreditoModel() {
+		credito = new Credito();
+	}
 	
 	public Credito getCredito() {
 		return credito;
