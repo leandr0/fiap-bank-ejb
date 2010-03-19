@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?> 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
@@ -8,15 +7,15 @@
       xmlns:rich="http://richfaces.org/rich">
 		
 		<head>
-				<title>
-			Nota Fácil - 
-			<ui:insert name="title">
-			</ui:insert>
-		</title>
-							
-	</head> 
+			<title>
+				<ui:insert name="title">
+					FIAP
+				</ui:insert>
+			</title>
+		</head> 
 	<body>
-	<ui:define name="body">			 	<div class="header" id="header"  style="width: 100%">
+	<ui:insert name="body">
+		<div class="header" id="header"  style="width: 100%">
 	 	<h:form prependId="false">
 	 		<div>
 				
@@ -45,7 +44,8 @@
 	 	</h:form>
 	 	</div>
 		<div id="menu" style="width: 100%;">
-			<a4j:form>										<rich:toolBar width="100%" itemSeparator="line" >
+			<a4j:form>						
+				<rich:toolBar width="100%" itemSeparator="line" >
 					<rich:dropDownMenu>
 						<f:facet name="label">
 							<h:outputLabel value="Nota Fiscal"></h:outputLabel>
@@ -62,9 +62,9 @@
 								onclick="window.open('/notafacil/seguranca/nfe-auth.jsp','nfe')"
 								oncomplete="this.disabled=false"/>		
 					</rich:dropDownMenu>
-				 </rich:toolBar>			</a4j:form>		</div>
-		<div id="body" style="width:100%; margin-top: 10px; ">			
-			<ui:insert name="body">						 									</ui:insert>
-		</div>	
-		</ui:define>	</body>
+				 </rich:toolBar>
+			</a4j:form>
+		</div>
+		
+		</ui:insert>	</body>
 </html>
