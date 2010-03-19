@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j">
+
+	<a4j:outputPanel id="panel-lista-pedido-credito">
+			<rich:dataTable value="#{avaliar_pedido_credito_mb.form.listaCreditos}"
+							var="credito"
+							rendered="#{not empty avaliar_pedido_credito_mb.form.listaCreditos}"
+							width="100%">
+				<rich:column>
+					<f:facet name="header">
+						Valor Crédito
+					</f:facet>
+					<h:outputText value="#{credito.valorCredito}" />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+						Número Meses Pagamento
+					</f:facet>
+					<h:outputText value="#{credito.numeroMesesPagamento}" />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+						Renda Mensal
+					</f:facet>
+					<h:outputText value="#{credito.conta.correntista.rendaMensal}" />
+				</rich:column>
+			</rich:dataTable>
+	</a4j:outputPanel>
+
+</html>

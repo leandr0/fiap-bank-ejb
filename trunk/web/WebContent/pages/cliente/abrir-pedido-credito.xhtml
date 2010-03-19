@@ -7,56 +7,33 @@
       xmlns:rich="http://richfaces.org/rich"
       xmlns:a4j="http://richfaces.org/a4j">
 
-	<head>
-	
-			<link rel="stylesheet" type="text/css" href="/web/resources/css/style.css" />
-			<script type="text/javascript" src="/web/resources/js/jquery/jquery.min.js"></script>
-			<script type="text/javascript" src="/web/resources/js/jquery/init.js"></script>
-			
-			<script type="text/javascript" src="/web/resources/js/jquery/jquery.maskedinput-1.1.4.pack.js"></script>
-			<script type="text/javascript" src="/web/resources/js/jquery/positionFooter.jQuery.js"></script>
-			<script type="text/javascript" src="/web/resources/js/jquery/jquery.textinput.focus.colorise.js"></script>
-			<script type="text/javascript" src="/web/resources/js/jquery/jquery.load.js"></script>						
-			<script type="text/javascript" src="/web/resources/js/jquery/jquery.corner.js"></script>
-			<script type="text/javascript" src="/web/resources/js/jquery/jquery.validate.js"></script>
-			<script type="text/javascript" src="/web/resources/js/jquery/jquery.maskMoney.0.2.js"></script>
-			<script type="text/javascript" src="/web/resources/js/jquery/jquery.dimensions.min.js"></script>
-			<script type="text/javascript" src="/web/resources/js/jquery/jquery.gradient.js"></script>
-			
-			<script type="text/javascript">
-
-				function salvarCredito(){
-					j('#div-solicitar-pedido-credito').fadeOut(2000);
-					j('#div-confirmar-pedido-credito').fadeIn(2000);
-				}
-				function novoCredito(){
-					j('#div-confirmar-pedido-credito').fadeOut(2000);
-					j('#div-solicitar-pedido-credito').fadeIn(2000);
-				}
-			</script>
-	</head>
-	<body>
-	
-		<h:form id="form-abrir-pedido-credito">
-		
-			<div id="div-dados-pedido-credito">
-				<ui:include src="/pages/cliente/dados-pedido-credito.xhtml" />
-			</div>
-			<div id="div-solicitar-pedido-credito">
-				<a4j:commandButton action="#{abrirPedidoCredito_mb.solicitarCredito}" 
-					value="Solocitar Credito"
-					reRender="panel-dados-pedido-credito" 
-					oncomplete="salvarCredito();"/>
-			</div>
-			<div id="div-confirmar-pedido-credito" style="display: none;">
-				<a4j:commandButton  
-					value="Novo Credito"
-					reRender="panel-dados-pedido-credito" 
-					onclick="novoCredito();"/>
-			</div>
-			
-		</h:form>
-	
-	</body>
-
+	<ui:composition template="/template/template.xhtml">
+			<ui:define name="body">
+				<h:form id="form-abrir-pedido-credito">
+					<div id="div-abrir-pedido-credito" style="padding: 20px;">
+						<div id="div-dados-pedido-credito">
+							<ui:include src="/pages/cliente/dados-pedido-credito.xhtml" />
+						</div>
+						<div id="div-solicitar-pedido-credito">
+							<a4j:commandButton action="#{abrirPedidoCredito_mb.solicitarCredito}" 
+								value="Solicitar Credito"
+								reRender="panel-dados-pedido-credito" 
+								oncomplete="salvarCredito();"/>
+						</div>
+						<div id="div-confirmar-pedido-credito" style="display: none;" >
+							<a4j:commandButton  
+								value="Novo Credito"
+								action="#{abrirPedidoCredito_mb.novaSolicitacaoCredito}"
+								reRender="panel-dados-pedido-credito" 
+								oncomplete="novoCredito();"/>
+							<a4j:commandButton  
+								value="Confirmar"
+								action="#{abrirPedidoCredito_mb.confirmarCredito}"
+								reRender="panel-dados-pedido-credito" 
+								oncomplete="novoCredito();"/>	
+						</div>
+					</div>
+				</h:form>
+		</ui:define>
+	</ui:composition>
 </html>

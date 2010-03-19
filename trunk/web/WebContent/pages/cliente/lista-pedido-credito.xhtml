@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j">
+
+	<a4j:outputPanel id="panel-lista-credito">
+	
+		<rich:dataTable value="#{consultar_pedido_credito_mb.form.listaCreditos}"
+			rendered="#{not empty consultar_pedido_credito_mb.form.listaCreditos}"
+			var="credito" width="100%" >
+			<rich:column>
+				<f:facet name="header">
+					<h:outputLabel value="Valor do Crédito"/>
+				</f:facet>
+				<h:outputText value="#{credito.valorCredito}" />
+			</rich:column>
+			<rich:column>
+				<f:facet name="header">
+					<h:outputLabel value="Nr meses pagamento"/>
+				</f:facet>
+				<h:outputText value="#{credito.numeroMesesPagamento}" />
+			</rich:column>
+			<rich:column>
+				<f:facet name="header">
+					<h:outputLabel value="Status pedido"/>
+				</f:facet>
+				<h:outputText value="#{credito.statusCredito}" />
+			</rich:column>
+			<a4j:support action="" event=""
+				/>
+		</rich:dataTable>
+		
+	</a4j:outputPanel>
+
+</html>
