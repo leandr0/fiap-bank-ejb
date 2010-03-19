@@ -7,56 +7,58 @@
 	xmlns:a4j="http://richfaces.org/a4j"
 	xmlns:rich="http://richfaces.org/rich"
 	xmlns:c="http://java.sun.com/jstl/core">
-     	<h:form>
-     		<f:view>
-     		<div style="margin-top: 250px;" >
 
-     					<h:panelGrid columns="3" width="80%">
-     						<!-- Cabeçalho -->
-	        				<h:outputText value="Parâmetros Disponíveis"/>                                    
-					        <h:outputText value=""/>
-					        <h:outputText value="Parâmetros Associados"/>
-     					</h:panelGrid>
-				<rich:calendar />
-      		</div>
-      	<h:panelGrid columns="3" width="80%">
-      	
-      		<!-- Cabeçalho -->
-	        <h:outputText value="Parâmetros Disponíveis"/>                                    
-	        <h:outputText value=""/>
-	        <h:outputText value="Parâmetros Associados"/>
-      	
-      		 <!-- Lista de Empresas Disponíveis -->
-	        <h:selectOneListbox id="parametrosCadastrados" size="5" style="width: 100%" >
-	        	<f:selectItem itemValue="Valor Base Cálculo"/>
-	        	<f:selectItem itemValue="Valor Base Cálculo ST"/>
-	        	<f:selectItem itemValue="Aliquota"/>
-	        </h:selectOneListbox>	
-      	
-      		 <!-- Botões de ação -->
-	        <h:panelGrid columns="1" width="100%" >
-	        	<a4j:commandButton  
-	        		title="adicionar"
-	                image="/images/arrow-next.gif"
-	                reRender="panel-picklist"
-	                onclick="this.disabled=true"
-					oncomplete="this.disabled=false"
-					styleClass="button-pick-list"/>
-													
-	            <a4j:commandButton 
-					title="Remover" 
-					image="/images/arrow-previous.gif"
-					reRender="panel-picklist"
-					onclick="this.disabled=true"
-					oncomplete="this.disabled=false"
-					styleClass="button-pick-list"/>
-	        </h:panelGrid>
-	        
-	        <!-- Lista de Empresas Vinculadas ao Usuário -->
-	        <h:selectOneListbox id="empresasVinculadas" size="5" style="width: 100%">
-	        	<f:selectItem itemValue="Aliquota ST"/>
-	        </h:selectOneListbox>   
-      	</h:panelGrid>
-     </f:view>
-     	</h:form>
+	<ui:composition template="/template/template.xhtml">
+		<ui:define name="title">
+			Criação Nota	
+		</ui:define>	
+		<ui:define name="body">
+	     	<div style="margin-top: 20px;" >
+	     		<h:panelGrid columns="3" width="80%">
+	     				<!-- Cabeçalho -->
+		        		<h:outputText value="Parâmetros Disponíveis"/>                                    
+				     	<h:outputText value=""/>
+						<h:outputText value="Parâmetros Associados"/>
+	     			</h:panelGrid>
+					<rich:calendar />
+	      	</div>
+	      	<h:panelGrid columns="3" width="80%">
+		      		<!-- Cabeçalho -->
+			        <h:outputText value="Parâmetros Disponíveis"/>                                    
+			        <h:outputText value=""/>
+			        <h:outputText value="Parâmetros Associados"/>
+		      	
+		      		 <!-- Lista de Empresas Disponíveis -->
+			        <h:selectOneListbox id="parametrosCadastrados" size="5" style="width: 100%" >
+			        	<f:selectItem itemValue="Valor Base Cálculo"/>
+			        	<f:selectItem itemValue="Valor Base Cálculo ST"/>
+			        	<f:selectItem itemValue="Aliquota"/>
+			        </h:selectOneListbox>	
+		      	
+		      		 <!-- Botões de ação -->
+			        <h:panelGrid columns="1" width="100%" >
+			        	<a4j:commandButton  
+			        		title="adicionar"
+			                image="/images/arrow-next.gif"
+			                reRender="panel-picklist"
+			                onclick="this.disabled=true"
+							oncomplete="this.disabled=false"
+							styleClass="button-pick-list"/>
+															
+			            <a4j:commandButton 
+							title="Remover" 
+							image="/images/arrow-previous.gif"
+							reRender="panel-picklist"
+							onclick="this.disabled=true"
+							oncomplete="this.disabled=false"
+							styleClass="button-pick-list"/>
+			        </h:panelGrid>
+			        
+			        <!-- Lista de Empresas Vinculadas ao Usuário -->
+			        <h:selectOneListbox id="empresasVinculadas" size="5" style="width: 100%">
+			        	<f:selectItem itemValue="Aliquota ST"/>
+			        </h:selectOneListbox>   
+		 	</h:panelGrid>
+     	</ui:define>
+	</ui:composition>
 </html>
