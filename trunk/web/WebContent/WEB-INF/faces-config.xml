@@ -17,6 +17,16 @@
   <managed-bean-class>br.com.fiap.web.managerbean.AbrirPedidoCreditoMB</managed-bean-class>
   <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
+ <managed-bean>
+  <managed-bean-name>consultar_pedido_credito_mb</managed-bean-name>
+  <managed-bean-class>br.com.fiap.web.managerbean.ConsultarPedidoCreditoMB</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>avaliar_pedido_credito_mb</managed-bean-name>
+  <managed-bean-class>br.com.fiap.web.managerbean.AvaliarPedidoCreditoMB</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
  <navigation-rule>
   <navigation-case>
    <from-outcome>gerente</from-outcome>
@@ -36,6 +46,19 @@
    <from-outcome>login</from-outcome>
    <to-view-id>/pages/login.xhtml</to-view-id>
    <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <navigation-case>
+   <from-outcome>menu</from-outcome>
+   <to-view-id>/pages/menu.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <navigation-case>
+   <from-outcome>avaliar-pedido-credito</from-outcome>
+   <to-view-id>/pages/gerente/avaliar-pedido-credito.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
  <application>
