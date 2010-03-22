@@ -36,6 +36,10 @@ public abstract class ManagerBean {
 			.getExternalContext();
 	}
 	
+	protected Object getAttributeInContext(String attributeName){
+		return getExternalContext().getRequestMap().get(attributeName);
+	}
+	
 	public String getMessage() {
 		return message;
 	}

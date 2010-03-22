@@ -47,9 +47,12 @@ public class AbrirPedidoCreditoMB extends ManagerBean{
 		return null;
 	}
 	
-	private void inicializar(){
+	public String inicializar(){
+		
 		form  = new AbrirPedidoCreditoForm();
-		model = new AbrirPedidoCreditoModel(); 
+		model = new AbrirPedidoCreditoModel();
+		
+		return "abrir-pedido-credito";
 	}
 	
 	public AbrirPedidoCreditoForm getForm() {

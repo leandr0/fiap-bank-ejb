@@ -37,9 +37,12 @@ public class ConsultarPedidoCreditoMB extends ManagerBean{
 	}
 	
 	
-	private void inicializar(){
+	public String inicializar(){
+		
 		form  = new ConsultarPedidoCreditoForm();
 		model = new ConsultarPedidoCreditoModel();
+		
+		return "consulta-pedido-credito";
 	}
 	
 	/**

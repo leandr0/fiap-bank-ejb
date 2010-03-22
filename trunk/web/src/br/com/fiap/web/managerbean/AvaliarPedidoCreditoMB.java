@@ -6,6 +6,7 @@ package br.com.fiap.web.managerbean;
 import javax.ejb.EJB;
 
 import br.com.fiap.business.interfaces.local.AvaliarPedidosCreditoLocal;
+import br.com.fiap.domain.entity.Credito;
 import br.com.fiap.web.form.AvaliarPedidoCreditoForm;
 import br.com.fiap.web.model.AvaliarPedidoCreditoModel;
 
@@ -52,6 +53,20 @@ public class AvaliarPedidoCreditoMB extends ManagerBean{
 		business.reprovarCredito(model.getCredito());
 		
 		carregarListaCredito();
+		
+		return null;
+	}
+	
+	public String recuperarCredito(){
+		
+		//form.setIdCredito((Long) getAttributeInContext("form-id-credito"));
+														
+		for(Credito credito : form.getListaCreditos()){
+			if(credito.getId().equals(form.getIdCredito())){
+				model.setCredito(credito);
+				break;
+			}
+		}
 		
 		return null;
 	}

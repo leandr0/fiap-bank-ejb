@@ -72,7 +72,7 @@
   <display-name>CLIENTE</display-name>
   <web-resource-collection>
    <web-resource-name>Secure Content Client</web-resource-name>
-   <url-pattern>/pages/client/*</url-pattern>
+   <url-pattern>/pages/cliente/*</url-pattern>
   </web-resource-collection>
   <auth-constraint>
    <role-name>CLIENTE</role-name>
@@ -85,7 +85,7 @@
   <display-name>GERENTE</display-name>
   <web-resource-collection>
    <web-resource-name>Secure Content Gerente</web-resource-name>
-   <url-pattern>/pages/adm/*</url-pattern>
+   <url-pattern>/pages/gerente/*</url-pattern>
   </web-resource-collection>
   <auth-constraint>
    <role-name>GERENTE</role-name>
@@ -106,4 +106,8 @@
   <description>Qualquer usuario que for acessar essa pagina deve ser gerente</description>
   <role-name>GERENTE</role-name>
  </security-role>
+ <error-page>
+ 	<error-code>403</error-code>
+ 	<location>/autentication-failure.jsp</location>
+ </error-page>
 </web-app>

@@ -6,16 +6,17 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:rich="http://richfaces.org/rich"
       xmlns:a4j="http://richfaces.org/a4j">
-
-	<h:panelGrid columns="2" >
-		<h:outputLabel value="Nome:" styleClass="label-input"/>
-		<h:inputText value="#{abrirConta_mb.model.correntista.usuario.nome}" />
-		<h:outputLabel value="RG:" styleClass="label-input"/>
-		<h:inputText value="#{abrirConta_mb.model.correntista.usuario.rg}" />
-		<h:outputLabel value="CPF:" styleClass="label-input"/>
-		<h:inputText value="#{abrirConta_mb.model.correntista.usuario.cpf}" />
-		<h:outputLabel value="Telefone:" styleClass="label-input"/>
-		<h:inputText value="#{abrirConta_mb.model.correntista.usuario.telefone}" />
-	</h:panelGrid>
+	<a4j:outputPanel id="panel-dados-pessoais">
+		<h:panelGrid columns="2" >
+			<h:outputLabel value="Nome:" styleClass="label-input"/>
+			<h:inputText value="#{abrirConta_mb.model.correntista.usuario.nome}" />
+			<h:outputLabel value="RG:" styleClass="label-input"/>
+			<h:inputText value="#{abrirConta_mb.model.correntista.usuario.rg}" />
+			<h:outputLabel value="CPF:" styleClass="label-input"/>
+			<h:inputText value="#{abrirConta_mb.model.correntista.usuario.cpf}" />
+			<h:outputLabel value="Telefone:" styleClass="label-input"/>
+			<h:inputText value="#{abrirConta_mb.model.correntista.usuario.telefone}" />
+		</h:panelGrid>
+	</a4j:outputPanel>
 
 </html>
