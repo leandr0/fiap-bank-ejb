@@ -19,8 +19,12 @@ public abstract class ManagerBean {
 	
 	
 	public ManagerBean() {
+		createNewSession();
+	}
+	
+	private void createNewSession(){
 		session = (HttpSession) 
-			getExternalContext().getSession(true);
+		getExternalContext().getSession(true);
 	}
 	
 	protected void setAttributeInSession(String attributeName, Object value){
@@ -31,7 +35,7 @@ public abstract class ManagerBean {
 		return session.getAttribute(attributeName);
 	}
 	
-	private ExternalContext getExternalContext() {
+	protected ExternalContext getExternalContext() {
 		return FacesContext.getCurrentInstance()
 			.getExternalContext();
 	}
@@ -49,6 +53,10 @@ public abstract class ManagerBean {
 	}
 
 	public HttpSession getSession() {
+		
+		if(session == null)
+			createNewSession();
+		
 		return session;
 	}
 
