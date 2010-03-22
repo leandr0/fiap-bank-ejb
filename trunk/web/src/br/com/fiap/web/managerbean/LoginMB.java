@@ -5,8 +5,12 @@ package br.com.fiap.web.managerbean;
 
 import javax.ejb.EJB;
 import javax.security.auth.login.LoginContext;
+import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.session.StandardSessionFacade;
 import org.jboss.security.auth.callback.AppCallbackHandler;
+
+import com.sun.xml.ws.server.servlet.HttpSessionInstanceResolver;
 
 import br.com.fiap.business.interfaces.local.LoginLocal;
 import br.com.fiap.domain.entity.Seguranca;
@@ -26,7 +30,7 @@ public class LoginMB extends ManagerBean{
 	@EJB
 	private LoginLocal business;
 
-	private LoginContext loginContext  = null;
+	/*private LoginContext loginContext  = null;*/
 	
 	public LoginMB(){
 		form = new LoginForm();
@@ -41,10 +45,10 @@ public class LoginMB extends ManagerBean{
 
 			if(seguranca != null){
 				
-				loginContext = new LoginContext("fiap-bank-policy",
+				/*loginContext = new LoginContext("fiap-bank-policy",
 						new AppCallbackHandler(form.getLogin(), form.getSenha().toCharArray()));
 				loginContext.login();
-				
+				*/
 				if(seguranca.getPerfil().equals("GERENTE"))
 					setAttributeInSession("agencia", seguranca.getFuncionario().getAgencia());
 
@@ -65,11 +69,13 @@ public class LoginMB extends ManagerBean{
 		try{
 
 			//business.logout(form.getLogin(), form.getSenha());
-			loginContext.logout();
-			loginContext.getSubject().getPrincipals().clear();
+			/*loginContext.logout();*/
 			session.removeAttribute("username");
 			session.removeAttribute("passwd");
 			session.invalidate();
+			getExternalContext().getSessionMap().clear();
+			session = null;
+			//getSession();
 			
 			return "login";
 			
