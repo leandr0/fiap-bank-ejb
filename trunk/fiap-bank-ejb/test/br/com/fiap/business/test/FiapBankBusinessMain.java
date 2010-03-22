@@ -40,10 +40,19 @@ public class FiapBankBusinessMain {
 		
 		try {
 			
-			context = new InitialContext();
-			Seguranca seguranca = logar(context);
+			Credito credito = new Credito();
+			credito.setId(1L);
+			Long a = new Long(1);
+			Long b = new Long(1);
+			
+			System.out.println(credito.getId().equals(b));
+			
+			//context = new InitialContext();
+			//Seguranca seguranca = logar(context);
 			//abrirConta(context);
 			//abrirCredito(context, conta);
+			//Conta conta = new Conta();
+			//conta.setId(10L);
 			//consultarCredito(context, conta);
 			//avaliarCredito(context);
 			
@@ -56,11 +65,11 @@ public class FiapBankBusinessMain {
 
 	public static Seguranca logar (Context context) throws NamingException, LoginException{
 		
-		LoginContext loginContext = new LoginContext("fiap-bank-policy", new AppCallbackHandler("000006", "cliente".toCharArray()));
+		LoginContext loginContext = new LoginContext("fiap-bank-policy", new AppCallbackHandler("000010", "cliente".toCharArray()));
 		loginContext.login();
 		LoginRemote login = (LoginRemote)context.lookup("fiap-bank-ear/login/remote");
 
-		return login.logar("000006", "cliente");
+		return login.logar("000010", "cliente");
 	}
 	
 	public static void abrirCredito(Context context, Conta conta) throws NamingException{

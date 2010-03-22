@@ -28,20 +28,20 @@ import br.com.fiap.domain.entity.Seguranca;
 public class LoginBean extends AbstractPersistenceContextBean implements
 		LoginLocal, LoginRemote {
 
+	private LoginContext loginContext  = null;
+	
 	/**
 	 * 
 	 */
 	private static Log LOG = LogFactory.getLog(LoginBean.class);
-
+	
 	@Override
 	public Seguranca logar(String login, String senha) throws LoginException {
 
 		LOG.info("Logando para : " + login);
 
-		LoginContext loginContext = new LoginContext("fiap-bank-policy",
-				new AppCallbackHandler(login, senha.toCharArray()));
-		loginContext.login();
-
+		
+		
 		Seguranca seguranca = null;
 
 		try {
@@ -69,4 +69,10 @@ public class LoginBean extends AbstractPersistenceContextBean implements
 
 	}
 
+	@Override
+	public void logout(String login, String senha) throws LoginException{
+		
+		loginContext.logout();
+
+	}
 }
