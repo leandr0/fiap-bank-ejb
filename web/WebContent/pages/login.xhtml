@@ -8,17 +8,20 @@
 	xmlns:rich="http://richfaces.org/rich"
 	xmlns:c="http://java.sun.com/jstl/core">
 	<head>
+		<link rel="stylesheet" type="text/css" href="/web/resources/css/style.css" />
 		<title>Login</title>
 	</head>
    <body>  	
 	     	<h:form >
-	     		<h:panelGrid columns="2">
-	     			<h:outputLabel value="Login:" />
-	     			<h:inputText value="#{login_mb.form.login}" />
-	     			<h:outputLabel value="Senha:" />
-	     			<h:inputText value="#{login_mb.form.senha}" />
-	     		</h:panelGrid>
-	     		<a4j:commandButton action="#{login_mb.logar}" value="Logar" id="button-logar"/>
+	     		<div id="login">
+		     		<h:panelGrid columns="2">
+		     			<h:outputLabel value="Login:" />
+		     			<h:inputText value="#{login_mb.form.login}" />
+		     			<h:outputLabel value="Senha:" />
+		     			<h:inputText value="#{login_mb.form.senha}" />
+		     		</h:panelGrid>
+		     		<a4j:commandButton action="#{login_mb.logar}" value="Logar" id="button-logar"/>
+	     		</div>
 			</h:form>
 	</body>
 </html>

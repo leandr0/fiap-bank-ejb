@@ -22,6 +22,12 @@
 							<ui:include src="/pages/gerente/cadastrar-senha.xhtml" />
 						</div>
 					
+						<div id="div-numero-conta" style="display: none;">
+							<h:inputText value="#{abrirConta_mb.form.codigoConta}" readonly="true"/>
+							Conta criada com sucesso ......
+							<a4j:commandButton action="#{abrirConta_mb.inicializar}" value="Confirmar" />
+						</div>
+						
 					</a4j:outputPanel>
 				
 				</h:form>

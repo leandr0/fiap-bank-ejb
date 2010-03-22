@@ -61,6 +61,34 @@
    <to-view-id>/pages/gerente/avaliar-pedido-credito.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
+ <navigation-rule>
+  <navigation-case>
+   <from-outcome>abrir-conta</from-outcome>
+   <to-view-id>/pages/gerente/abrir-conta.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <navigation-case>
+   <from-outcome>abrir-pedido-credito</from-outcome>
+   <to-view-id>/pages/cliente/abrir-pedido-credito.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+  <navigation-rule>
+  <navigation-case>
+   <from-outcome>consulta-pedido-credito</from-outcome>
+   <to-view-id>/pages/cliente/consulta-pedido-credito.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+  <navigation-rule>
+  <navigation-case>
+   <from-outcome>avaliar-pedido-credito</from-outcome>
+   <to-view-id>/pages/gerente/avaliar-pedido-credito.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
  <application>
   <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
  </application>

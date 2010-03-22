@@ -6,14 +6,15 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:rich="http://richfaces.org/rich"
       xmlns:a4j="http://richfaces.org/a4j">
-
-	<h:panelGrid columns="2">
-		<h:outputLabel value="Renda Mensal:" />
-		<h:inputText value="#{abrirConta_mb.model.correntista.rendaMensal}" />
-		<h:outputLabel value="Valor Patrimônio Total:" />
-		<h:inputText value="#{abrirConta_mb.model.correntista.valorTotalPatrimonio}" />
-		<h:outputLabel value="Gasto Mensal Aproximado:" />
-		<h:inputText value="#{abrirConta_mb.model.correntista.gastoMensalAproximado}" />
-	</h:panelGrid>
+	<a4j:outputPanel id="panel-dados-financeiros">
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Renda Mensal:" />
+			<h:inputText value="#{abrirConta_mb.model.correntista.rendaMensal}" />
+			<h:outputLabel value="Valor Patrimônio Total:" />
+			<h:inputText value="#{abrirConta_mb.model.correntista.valorTotalPatrimonio}" />
+			<h:outputLabel value="Gasto Mensal Aproximado:" />
+			<h:inputText value="#{abrirConta_mb.model.correntista.gastoMensalAproximado}" />
+		</h:panelGrid>
+	</a4j:outputPanel>
 	
 </html>

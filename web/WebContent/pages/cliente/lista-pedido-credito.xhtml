@@ -11,7 +11,7 @@
 	
 		<rich:dataTable value="#{consultar_pedido_credito_mb.form.listaCreditos}"
 			rendered="#{not empty consultar_pedido_credito_mb.form.listaCreditos}"
-			var="credito" width="100%" >
+			var="credito" width="100%" rows="10">
 			<rich:column>
 				<f:facet name="header">
 					<h:outputLabel value="Valor do Crédito"/>
@@ -30,8 +30,9 @@
 				</f:facet>
 				<h:outputText value="#{credito.statusCredito}" />
 			</rich:column>
-			<a4j:support action="" event=""
-				/>
+			<f:facet name="footer">
+            	<rich:datascroller id="datascroller-pedido-credito" renderIfSinglePage="false"></rich:datascroller>
+        	</f:facet> 
 		</rich:dataTable>
 		
 	</a4j:outputPanel>

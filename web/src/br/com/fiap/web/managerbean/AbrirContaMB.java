@@ -24,7 +24,7 @@ public class AbrirContaMB extends ManagerBean{
 	private AbrirContaLocal business;
 	
 	public AbrirContaMB(){
-		init();
+		inicializar();
 	}
 	
 	public String abrirConta(){
@@ -39,12 +39,17 @@ public class AbrirContaMB extends ManagerBean{
 		
 		business.adicionarSenha(model.getCorrentista().getConta(),model.getSeguranca());
 		
+		form.setCodigoConta(model.getCorrentista().getConta().getCodigoConta());
+		
 		return null;
 	}
 	
-	private void init(){
+	public String inicializar(){
+		
 		form  = new AbrirContaForm();
 		model = new AbrirContaModel();
+		
+		return "abrir-conta";
 	}
 	
 	public AbrirContaForm getForm() {

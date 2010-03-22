@@ -15,6 +15,24 @@ public class AvaliarPedidoCreditoForm {
 
 	private List<Credito> listaCreditos;
 
+	private Long idCredito;
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public Long getIdCredito() {
+		return idCredito;
+	}
+
+	/**
+	 * 
+	 * @param idCredito
+	 */
+	public void setIdCredito(Long idCredito) {
+		this.idCredito = idCredito;
+	}
+
 	/**
 	 * @return the listaCreditos
 	 */

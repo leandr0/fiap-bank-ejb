@@ -11,7 +11,8 @@
 			<rich:dataTable value="#{avaliar_pedido_credito_mb.form.listaCreditos}"
 							var="credito"
 							rendered="#{not empty avaliar_pedido_credito_mb.form.listaCreditos}"
-							width="100%">
+							width="100%"
+							align="center">
 				<rich:column>
 					<f:facet name="header">
 						Valor Crédito
@@ -30,6 +31,22 @@
 					</f:facet>
 					<h:outputText value="#{credito.conta.correntista.rendaMensal}" />
 				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+						Detalhes
+					</f:facet>
+					<a4j:commandButton action="#{avaliar_pedido_credito_mb.recuperarCredito}" 
+										value="Exibir Detalhes" 
+										reRender="panel-avaliar-credito"
+										oncomplete="exibirDetalhesCredito();">			
+								<a4j:actionparam assignTo="#{avaliar_pedido_credito_mb.form.idCredito}" 
+	 										value="#{credito.id}"
+	 										name="form-id-credito"/>		 			 
+					</a4j:commandButton>
+				</rich:column>
+				<f:facet name="footer">
+            		<rich:datascroller id="datascroller-pedido-credito-gerente" renderIfSinglePage="false"></rich:datascroller>
+        		</f:facet>
 			</rich:dataTable>
 	</a4j:outputPanel>
 

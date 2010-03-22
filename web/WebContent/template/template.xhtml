@@ -1,4 +1,5 @@
- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
@@ -7,6 +8,61 @@
       xmlns:rich="http://richfaces.org/rich">
 		
 		<head>
+			<link rel="stylesheet" type="text/css" href="/web/resources/css/style.css" />
+			<script type="text/javascript" src="/web/resources/js/jquery/jquery.min.js"></script>
+			<script type="text/javascript" src="/web/resources/js/jquery/init.js"></script>
+			
+			<script type="text/javascript" src="/web/resources/js/jquery/jquery.maskedinput-1.1.4.pack.js"></script>
+			<script type="text/javascript" src="/web/resources/js/jquery/positionFooter.jQuery.js"></script>
+			<script type="text/javascript" src="/web/resources/js/jquery/jquery.textinput.focus.colorise.js"></script>
+			<script type="text/javascript" src="/web/resources/js/jquery/jquery.load.js"></script>						
+			<script type="text/javascript" src="/web/resources/js/jquery/jquery.corner.js"></script>
+			<script type="text/javascript" src="/web/resources/js/jquery/jquery.validate.js"></script>
+			<script type="text/javascript" src="/web/resources/js/jquery/jquery.maskMoney.0.2.js"></script>
+			<script type="text/javascript" src="/web/resources/js/jquery/jquery.dimensions.min.js"></script>
+			<script type="text/javascript" src="/web/resources/js/jquery/jquery.gradient.js"></script>
+			
+			<script type="text/javascript">
+
+				function salvarCredito(){
+					j('#div-solicitar-pedido-credito').hide();
+					j('#div-confirmar-pedido-credito').fadeIn(1500);
+				}
+				function novoCredito(){
+					j('#div-confirmar-pedido-credito').hide();
+					j('#div-solicitar-pedido-credito').fadeIn(1500);
+				}
+			</script>
+			<script type="text/javascript">
+
+				function salvarConta(){
+					j('#div-numero-conta').hide();
+					j('#div-cadastrar-conta').hide();
+					j('#div-cadastrar-senha').show();
+				}
+				function salvarSenha(){
+					j('#div-numero-conta').show();
+					j('#div-cadastrar-conta').hide();
+					j('#div-cadastrar-senha').hide();
+				}
+				function confirmarConta(){
+					j('#div-numero-conta').hide();
+					j('#div-cadastrar-conta').show();
+					j('#div-cadastrar-senha').hide();
+				}
+					
+			</script>
+			<script type="text/javascript">
+
+				function exibirListaCredito(){
+					j('#div-avaliar-credito').hide();
+					j('#div-lista-pedido-credito').show();
+				}
+				function exibirDetalhesCredito(){
+					j('#div-avaliar-credito').show();
+					j('#div-lista-pedido-credito').hide();
+				}
+			</script>
 			<title>
 				<ui:insert name="title">
 					FIAP
@@ -14,25 +70,24 @@
 			</title>
 		</head> 
 	<body>
-	<ui:insert name="body">
 		<div class="header" id="header"  style="width: 100%">
 	 	<h:form prependId="false">
 	 		<div>
 				
 				<div class="header-menu">
-					<span class="header-menu-item">
+					<span class="header-menu-item" style="display: none;">
 		 				<a4j:commandButton  id="img-alterar-senha" alt="Alterar Senha" 
 		 				image="/resources/img/gif/chave.gif" 
 		 				reRender="panel-tool-alterar-senha"
 		 				oncomplete="Richfaces.showModalPanel('seguranca-panel-alterar-senha');"></a4j:commandButton>
 		 				<label for="img-alterar-senha">Alterar Senha</label>
 			 		</span>
-					<span class="header-menu-item">
+					<span class="header-menu-item" style="display: none;">
 		 				<a4j:commandButton alt="Página Inicial" image="/resources/img/gif/home.gif"></a4j:commandButton>
 		 				<label for="img-pag-inicial">Página Inicial</label>
 			 		</span>
 			 		
-			 		<span class="header-menu-item" style="padding-top:3px">
+			 		<span class="header-menu-item" style="padding-top:3px;display: none;">
 			 			<a4j:commandLink 
 							title="logout"
 							onclick="Richfaces.showModalPanel('seguranca-panel-logout');"
@@ -48,23 +103,49 @@
 				<rich:toolBar width="100%" itemSeparator="line" >
 					<rich:dropDownMenu>
 						<f:facet name="label">
-							<h:outputLabel value="Nota Fiscal"></h:outputLabel>
+							<h:outputLabel value="Correntista"></h:outputLabel>
 						</f:facet>
 						<rich:menuItem
-								value="Painel"
+								value="Abrir Pedido de Crédito"
 								submitMode="ajax"
-								action="#{pnl_notas_fisciais_mb.iniciar}"
-								onclick="this.disabled=true"
-								oncomplete="this.disabled=false"/>
+								action="#{abrirPedidoCredito_mb.inicializar}"
+								reRender="panel-dados-pedido-credito"
+								onclick="this.disable=true"
+								oncomplete="this.disable=false"/>
 						<rich:menuItem
-								value="Data Primer NFe"
+								value="Consultar Pedido de Crédito"
 								submitMode="ajax"
-								onclick="window.open('/notafacil/seguranca/nfe-auth.jsp','nfe')"
-								oncomplete="this.disabled=false"/>		
+								onclick="this.disable=true"
+								oncomplete="this.disable=false"
+								action="#{consultar_pedido_credito_mb.inicializar}"/>		
 					</rich:dropDownMenu>
+					<rich:dropDownMenu>
+						<f:facet name="label">
+							<h:outputLabel value="Gerente"></h:outputLabel>
+						</f:facet>
+						<rich:menuItem
+							action="#{abrirConta_mb.inicializar}"
+							value="Abrir Conta"
+							submitMode="ajax"
+							reRender="panel-abrir-conta;panel-dados-pessoais;
+										panel-dados-financeiros;panel-endereco "
+							onclick="this.disable=true"
+								oncomplete="this.disable=false">
+						</rich:menuItem>
+						<rich:menuItem
+							action="#{avaliar_pedido_credito_mb.carregarListaCredito}"
+							value="Avaliar Pedido de Credito"
+							submitMode="ajax"
+							reRender="panel-lista-credito"
+							onclick="this.disable=true"
+							oncomplete="this.disable=false">
+						</rich:menuItem>
+						
+					</rich:dropDownMenu>
+					<a4j:commandButton action="#{login_mb.logout}" value="LOGOUT" />
 				 </rich:toolBar>
 			</a4j:form>
 		</div>
-		
+		<ui:insert name="body">
 		</ui:insert>	</body>
 </html>
