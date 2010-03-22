@@ -23,4 +23,12 @@ public interface LoginLocal {
 	 * @throws LoginException
 	 */
 	public Seguranca logar(String login, String senha) throws LoginException ;
+	
+	/**
+	 * 
+	 * @param login
+	 * @param senha
+	 * @throws LoginException
+	 */
+	public void logout(String login, String senha) throws LoginException;
 }

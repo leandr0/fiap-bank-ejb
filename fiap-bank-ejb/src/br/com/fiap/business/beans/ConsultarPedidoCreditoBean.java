@@ -6,12 +6,14 @@ package br.com.fiap.business.beans;
 import java.util.List;
 
 import javax.annotation.security.RolesAllowed;
+import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
 import org.jboss.security.annotation.SecurityDomain;
 
+import br.com.fiap.business.dao.interfaces.CreditoLocalDAO;
 import br.com.fiap.business.interfaces.local.ConsultarPedidoCreditoLocal;
 import br.com.fiap.business.interfaces.remote.ConsultarPedidoCreditoRemote;
 import br.com.fiap.domain.entity.Conta;
@@ -27,12 +29,12 @@ import br.com.fiap.domain.entity.Credito;
 @SecurityDomain("fiap-bank-policy")
 public class ConsultarPedidoCreditoBean extends AbstractPersistenceContextBean  implements ConsultarPedidoCreditoRemote,ConsultarPedidoCreditoLocal {
 
+	@EJB
+	private CreditoLocalDAO creditoLocalDAO;
+	
 	@Override
 	@RolesAllowed(value = "CLIENTE")
 	public List<Credito> consultarPedidosCredito(Conta conta) {
-		
-		conta = entityManager.find(Conta.class, conta.getId());
-		
-		return conta.getCreditos();
+		return creditoLocalDAO.listarCreditoConta(conta);
 	}
 }
