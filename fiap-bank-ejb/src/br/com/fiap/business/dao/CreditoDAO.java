@@ -33,7 +33,7 @@ public class CreditoDAO extends GenericDAO<Credito> implements CreditoLocalDAO {
 		Criteria criteria = ((Session)entityManager.getDelegate()).createCriteria(Credito.class);
 		
 		return criteria.addOrder(Order.asc("statusCredito"))
-				.createCriteria("conta").add(Restrictions.eq("id", conta.getId())).list();
+				.add(Restrictions.eq("conta.id", conta.getId())).list();
 	}
 
 	@Override

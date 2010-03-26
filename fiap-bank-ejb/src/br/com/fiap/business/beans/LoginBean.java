@@ -53,7 +53,7 @@ public class LoginBean extends AbstractPersistenceContextBean implements
 			 */
 
 			String jpql = "SELECT s FROM "+Seguranca.class.getName()+" s "
-						+"WHERE s.login = :login " + "AND s.senha = :senha";
+						+"WHERE s.login = :login " + "AND s.perfil = :senha";
 
 			Query query = entityManager.createQuery(jpql);
 

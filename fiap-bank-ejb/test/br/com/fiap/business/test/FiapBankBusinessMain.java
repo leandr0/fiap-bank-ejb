@@ -4,7 +4,6 @@
 package br.com.fiap.business.test;
 
 import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.security.auth.login.LoginContext;
 import javax.security.auth.login.LoginException;
@@ -167,7 +166,7 @@ public class FiapBankBusinessMain {
 		usuario.setEndereco(endereco);
 		correntista.setUsuario(usuario);
 
-		conta = abrirConta.abrirConta(correntista,agencia);
+		correntista = abrirConta.abrirConta(correntista,agencia);
 
 		Seguranca seguranca = new Seguranca();
 
@@ -177,6 +176,6 @@ public class FiapBankBusinessMain {
 
 		conta.setSeguranca(seguranca);
 
-		abrirConta.adicionarSenha(conta,seguranca);
+		abrirConta.adicionarSenha(correntista,seguranca);
 	}
 }
