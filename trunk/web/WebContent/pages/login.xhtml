@@ -13,15 +13,19 @@
 	</head>
    <body>  	
 	     	<h:form >
-	     		<div id="login">
-		     		<h:panelGrid columns="2">
-		     			<h:outputLabel value="Login:" />
-		     			<h:inputText value="#{login_mb.form.login}" />
-		     			<h:outputLabel value="Senha:" />
-		     			<h:inputText value="#{login_mb.form.senha}" />
-		     		</h:panelGrid>
-		     		<a4j:commandButton action="#{login_mb.logar}" value="Logar" id="button-logar"/>
+	     		<div id="login"  align="center" style="width: 100%;padding-bottom: 100px;">
+	     			
 	     		</div>
+	     		<div align="center">
+			     		<h:panelGrid columns="2">
+			     			<h:outputLabel value="Login:" />
+			     			<h:inputText value="#{login_mb.form.login}" />
+			     			<h:outputLabel value="Senha:" />
+			     			<h:inputText value="#{login_mb.form.senha}" />
+			     		</h:panelGrid>
+			     		<a4j:commandButton action="#{login_mb.logar}" value="Logar" id="button-logar"/>
+		     	</div>
+		     		
 			</h:form>
 	</body>
 </html>

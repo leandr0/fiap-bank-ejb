@@ -31,9 +31,10 @@ public class AbrirPedidoCreditoMB extends ManagerBean{
 	
 	public String solicitarCredito(){
 		
-		business.abrirPedidoCredito(model.getCredito(), 
-				(Conta) getAttributeInSession("conta"));
-		
+		try{
+		business.abrirPedidoCredito(model.getCredito(), getConta());
+		}catch (Exception e) {
+		}
 		return null;
 	}
 	

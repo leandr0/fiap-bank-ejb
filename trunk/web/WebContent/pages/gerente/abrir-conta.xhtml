@@ -23,9 +23,14 @@
 						</div>
 					
 						<div id="div-numero-conta" style="display: none;">
-							<h:inputText value="#{abrirConta_mb.form.codigoConta}" readonly="true"/>
-							Conta criada com sucesso ......
-							<a4j:commandButton action="#{abrirConta_mb.inicializar}" value="Confirmar" />
+							<a4j:outputPanel id="panel-codigo-conta">
+								<h:panelGrid columns="2">
+									<h:outputText value="Número da Conta:"/>
+									<h:inputText value="#{abrirConta_mb.form.codigoConta}" disabled="true"/>
+									<h:outputLabel value="Conta criada com sucesso ......" style="color; red;"/>
+								</h:panelGrid>
+								<a4j:commandButton action="#{abrirConta_mb.inicializar}" value="Confirmar" />
+							</a4j:outputPanel>
 						</div>
 						
 					</a4j:outputPanel>

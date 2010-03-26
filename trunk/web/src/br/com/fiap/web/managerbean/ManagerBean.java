@@ -3,9 +3,18 @@
  */
 package br.com.fiap.web.managerbean;
 
+import java.security.Principal;
+
+import javax.ejb.EJB;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.security.auth.login.LoginException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import br.com.fiap.business.interfaces.local.LoginLocal;
+import br.com.fiap.domain.entity.Agencia;
+import br.com.fiap.domain.entity.Conta;
 
 /**
  * @author leandro.goncalves
@@ -17,6 +26,8 @@ public abstract class ManagerBean {
 
 	protected HttpSession session;
 	
+	@EJB
+	private LoginLocal business;
 	
 	public ManagerBean() {
 		createNewSession();
@@ -44,6 +55,22 @@ public abstract class ManagerBean {
 		return getExternalContext().getRequestMap().get(attributeName);
 	}
 	
+	protected Conta getConta() throws LoginException{
+		
+		HttpServletRequest request =  (HttpServletRequest) getExternalContext().getRequest();
+		Principal principal = request.getUserPrincipal();
+		
+		return business.logar(principal.getName(), "CLIENTE").getConta();
+	}
+	
+	protected Agencia getAgencia() throws LoginException{
+		
+		HttpServletRequest request =  (HttpServletRequest) getExternalContext().getRequest();
+		Principal principal = request.getUserPrincipal();
+		
+		return business.logar(principal.getName(), "GERENTE").getFuncionario().getAgencia();
+	}
+	
 	public String getMessage() {
 		return message;
 	}
@@ -51,7 +78,7 @@ public abstract class ManagerBean {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-
+	
 	public HttpSession getSession() {
 		
 		if(session == null)
