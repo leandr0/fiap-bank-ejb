@@ -73,7 +73,13 @@
 		<div class="header" id="header"  style="width: 100%">
 	 	<h:form prependId="false">
 	 		<div>
-				
+				<span style="padding-left: 98%">
+					<a4j:commandButton image="/resources/images/logout.png"
+						action="#{login_mb.logout}"
+						value="Logout"
+						title="Logout" 
+					/> 
+				</span>
 				<div class="header-menu">
 					<span class="header-menu-item" style="display: none;">
 		 				<a4j:commandButton  id="img-alterar-senha" alt="Alterar Senha" 
@@ -117,7 +123,7 @@
 								submitMode="ajax"
 								onclick="this.disable=true"
 								oncomplete="this.disable=false"
-								action="#{consultar_pedido_credito_mb.inicializar}"/>		
+								action="#{consultar_pedido_credito_mb.consultarCredito}"/>		
 					</rich:dropDownMenu>
 					<rich:dropDownMenu>
 						<f:facet name="label">

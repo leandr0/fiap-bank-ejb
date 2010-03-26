@@ -4,14 +4,15 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:rich="http://richfaces.org/rich"
-      xmlns:a4j="http://richfaces.org/a4j">
-
-		<h:panelGrid columns="2">
-			<h:outputLabel value="Senha:" />
-			<h:inputSecret value="#{abrirConta_mb.model.seguranca.senha}" />
-			<h:outputLabel value="Confirmação de Senha:" />
-			<h:inputSecret value="#{abrirConta_mb.form.confirmacaoSenha}" />
-		</h:panelGrid>
-		
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+			
+			<a4j:outputPanel id="panel-cadastrar-senha">
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Senha:" />
+					<h:inputText value="#{abrirConta_mb.model.seguranca.senha}" />
+					<h:outputLabel value="Senha:" />
+					<h:inputSecret value="#{abrirConta_mb.form.confirmacaoSenha}" />
+				</h:panelGrid>
+			</a4j:outputPanel>
 </html>

@@ -6,7 +6,6 @@ package br.com.fiap.web.managerbean;
 import javax.ejb.EJB;
 
 import br.com.fiap.business.interfaces.local.ConsultarPedidoCreditoLocal;
-import br.com.fiap.domain.entity.Conta;
 import br.com.fiap.web.form.ConsultarPedidoCreditoForm;
 import br.com.fiap.web.model.ConsultarPedidoCreditoModel;
 
@@ -17,34 +16,34 @@ import br.com.fiap.web.model.ConsultarPedidoCreditoModel;
 public class ConsultarPedidoCreditoMB extends ManagerBean{
 
 	private ConsultarPedidoCreditoForm form;
-	
+
 	private ConsultarPedidoCreditoModel model;
-	
+
 	@EJB
 	private ConsultarPedidoCreditoLocal business;
 
-	
+
 	public ConsultarPedidoCreditoMB() {
 		inicializar();
 	}
-	
-	
+
+
 	public String consultarCredito(){
-		form.setListaCreditos(
-				business.consultarPedidosCredito(
-						(Conta)getAttributeInSession("conta")));
-		return null;
-	}
-	
-	
-	public String inicializar(){
-		
-		form  = new ConsultarPedidoCreditoForm();
-		model = new ConsultarPedidoCreditoModel();
-		
+		try{
+			form.setListaCreditos(
+					business.consultarPedidosCredito(getConta()));
+		}catch (Exception e) {
+		}
 		return "consulta-pedido-credito";
 	}
-	
+
+
+	public void inicializar(){
+
+		form  = new ConsultarPedidoCreditoForm();
+		model = new ConsultarPedidoCreditoModel();
+	}
+
 	/**
 	 * @return the form
 	 */

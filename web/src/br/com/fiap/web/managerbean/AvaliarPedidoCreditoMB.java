@@ -58,8 +58,6 @@ public class AvaliarPedidoCreditoMB extends ManagerBean{
 	}
 	
 	public String recuperarCredito(){
-		
-		//form.setIdCredito((Long) getAttributeInContext("form-id-credito"));
 														
 		for(Credito credito : form.getListaCreditos()){
 			if(credito.getId().equals(form.getIdCredito())){
