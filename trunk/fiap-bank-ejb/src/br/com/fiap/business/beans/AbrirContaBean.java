@@ -34,7 +34,7 @@ public class AbrirContaBean extends AbstractPersistenceContextBean implements Ab
 	
 	@Override
 	@RolesAllowed(value = "GERENTE")
-	public Conta abrirConta(Correntista correntista,Agencia agencia) {
+	public Correntista abrirConta(Correntista correntista,Agencia agencia) {
 		
 		TipoConta tipoConta = new TipoConta();
 		tipoConta.setId(1L);
@@ -44,21 +44,22 @@ public class AbrirContaBean extends AbstractPersistenceContextBean implements Ab
 		correntista.getConta().setAgencia(agencia);
 		correntista.getConta().setTipoConta(tipoConta);
 		
-		entityManager.persist(correntista);
-		return correntista.getConta();
+		//entityManager.persist(correntista);
+		return correntista;
 	}
 
 	@Override
 	@RolesAllowed(value = "GERENTE")
-	public void adicionarSenha(Conta conta,Seguranca seguranca){
+	public void adicionarSenha(Correntista correntista,Seguranca seguranca){
+		entityManager.persist(correntista);
 		seguranca.setPerfil("CLIENTE");
-		String codigoConta = StringUtils.leftPad(conta.getId().toString(), 6, "0");
+		String codigoConta = StringUtils.leftPad(correntista.getConta().getId().toString(), 6, "0");
 		seguranca.setLogin(codigoConta);
-		seguranca.setConta(conta);
-		conta.setSeguranca(seguranca);
+		seguranca.setConta(correntista.getConta());
+		correntista.getConta().setSeguranca(seguranca);
 		entityManager.persist(seguranca);
-		conta.setCodigoConta(codigoConta);
-		entityManager.merge(conta);
+		correntista.getConta().setCodigoConta(codigoConta);
+		entityManager.merge(correntista.getConta());
 	}
 	
 }
