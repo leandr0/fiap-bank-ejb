@@ -21,6 +21,14 @@ public interface AbrirPedidoCreditoRemote {
 	 * @param conta
 	 * @return
 	 */
+	public Credito avaliarPedidoCredito(Credito credito,Conta conta);
+	
+	/**
+	 * 
+	 * @param credito
+	 * @param conta
+	 * @return
+	 */
 	public Credito abrirPedidoCredito(Credito credito,Conta conta);
 	
 }
