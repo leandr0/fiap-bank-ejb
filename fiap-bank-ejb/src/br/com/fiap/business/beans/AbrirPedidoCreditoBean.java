@@ -26,10 +26,21 @@ import br.com.fiap.domain.enums.StatusCredito;
 @SecurityDomain("fiap-bank-policy")
 public class AbrirPedidoCreditoBean extends AbstractPersistenceContextBean implements AbrirPedidoCreditoLocal,AbrirPedidoCreditoRemote{
 	
+	
+	
 	@Override
 	@RolesAllowed(value = "CLIENTE")
 	public Credito abrirPedidoCredito(Credito credito, Conta conta) {
+		
+		entityManager.persist(credito);
+		
+		return credito;
+	}
 
+	@Override
+	@RolesAllowed(value = "CLIENTE")
+	public Credito avaliarPedidoCredito(Credito credito, Conta conta) {
+		
 		double renda 		= conta.getCorrentista().getRendaMensal();
 		double gasto 		= conta.getCorrentista().getGastoMensalAproximado();
 		double patrimonio 	= conta.getCorrentista().getValorTotalPatrimonio();
@@ -45,9 +56,7 @@ public class AbrirPedidoCreditoBean extends AbstractPersistenceContextBean imple
 			credito.setStatusCredito(StatusCredito.SUJEITO_A_APROVACAO);
 		
 		credito.setConta(conta);
-		
-		entityManager.persist(credito);
-		
+
 		return credito;
 	}
 }
