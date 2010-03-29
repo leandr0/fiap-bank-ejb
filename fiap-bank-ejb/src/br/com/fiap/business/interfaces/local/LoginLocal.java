@@ -18,17 +18,10 @@ public interface LoginLocal {
 	/**
 	 * 
 	 * @param login
-	 * @param senha
+	 * @param perfil
 	 * @return
 	 * @throws LoginException
 	 */
-	public Seguranca logar(String login, String senha) throws LoginException ;
-	
-	/**
-	 * 
-	 * @param login
-	 * @param senha
-	 * @throws LoginException
-	 */
-	public void logout(String login, String senha) throws LoginException;
+	public Seguranca logar(String login, String perfil) throws LoginException ;
+
 }
