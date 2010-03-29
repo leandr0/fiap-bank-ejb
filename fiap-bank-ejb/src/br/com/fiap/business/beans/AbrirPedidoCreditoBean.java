@@ -4,12 +4,14 @@
 package br.com.fiap.business.beans;
 
 import javax.annotation.security.RolesAllowed;
+import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
 import org.jboss.security.annotation.SecurityDomain;
 
+import br.com.fiap.business.dao.interfaces.CreditoLocalDAO;
 import br.com.fiap.business.interfaces.local.AbrirPedidoCreditoLocal;
 import br.com.fiap.business.interfaces.remote.AbrirPedidoCreditoRemote;
 import br.com.fiap.domain.entity.Conta;
@@ -24,15 +26,17 @@ import br.com.fiap.domain.enums.StatusCredito;
 @Remote(AbrirPedidoCreditoRemote.class)
 @Local(AbrirPedidoCreditoLocal.class)
 @SecurityDomain("fiap-bank-policy")
-public class AbrirPedidoCreditoBean extends AbstractPersistenceContextBean implements AbrirPedidoCreditoLocal,AbrirPedidoCreditoRemote{
+public class AbrirPedidoCreditoBean  implements AbrirPedidoCreditoLocal,AbrirPedidoCreditoRemote{
 	
+	@EJB
+	private CreditoLocalDAO creditoLocalDAO;
 	
 	
 	@Override
 	@RolesAllowed(value = "CLIENTE")
 	public Credito abrirPedidoCredito(Credito credito, Conta conta) {
 		
-		entityManager.persist(credito);
+		creditoLocalDAO.insert(credito);
 		
 		return credito;
 	}

@@ -27,7 +27,7 @@ import br.com.fiap.domain.entity.Credito;
 @Remote(ConsultarPedidoCreditoRemote.class)
 @Local(ConsultarPedidoCreditoLocal.class)
 @SecurityDomain("fiap-bank-policy")
-public class ConsultarPedidoCreditoBean extends AbstractPersistenceContextBean  implements ConsultarPedidoCreditoRemote,ConsultarPedidoCreditoLocal {
+public class ConsultarPedidoCreditoBean implements ConsultarPedidoCreditoRemote,ConsultarPedidoCreditoLocal {
 
 	@EJB
 	private CreditoLocalDAO creditoLocalDAO;
