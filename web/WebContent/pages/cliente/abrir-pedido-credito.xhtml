@@ -10,29 +10,43 @@
 	<ui:composition template="/template/template.xhtml">
 			<ui:define name="body">
 				<h:form id="form-abrir-pedido-credito">
-					<div id="div-abrir-pedido-credito" style="padding: 20px;">
-						<div id="div-dados-pedido-credito">
+					<div id="div-abrir-pedido-credito" >
+						<div id="div-dados-pedido-credito" class="div-dados">
 							<ui:include src="/pages/cliente/dados-pedido-credito.xhtml" />
 						</div>
 						<div id="div-solicitar-pedido-credito">
 							<a4j:commandButton action="#{abrirPedidoCredito_mb.solicitarCredito}" 
-								value="Solicitar Credito"
-								reRender="panel-dados-pedido-credito" 
-								oncomplete="salvarCredito();"/>
+								value="Confirmar"
+								onclick="showLoad();this.disable=true;"
+								reRender="panel-dados-pedido-credito, panel-acao-credito" 
+								oncomplete="salvarCredito();hideLoad();this.disable=false;"/>
 						</div>
 						<div id="div-confirmar-pedido-credito" style="display: none;" >
-							<a4j:commandButton  
-								value="Novo Credito"
-								action="#{abrirPedidoCredito_mb.novaSolicitacaoCredito}"
-								reRender="panel-dados-pedido-credito" 
-								oncomplete="novoCredito();"/>
-							<a4j:commandButton  
-								value="Confirmar"
-								action="#{abrirPedidoCredito_mb.confirmarCredito}"
-								reRender="panel-dados-pedido-credito" 
-								oncomplete="novoCredito();"/>	
+							<a4j:outputPanel id="panel-acao-credito">
+								<h:panelGrid columns="3">
+										<a4j:commandButton  
+											value="Novo Pedido"
+											onclick="showLoad();this.disable=true;"
+											action="#{abrirPedidoCredito_mb.novaSolicitacaoCredito}"
+											reRender="panel-dados-pedido-credito" 
+											oncomplete="novoCredito();hideLoad();this.disable=false;"/>
+										<a4j:commandButton rendered="#{abrirPedidoCredito_mb.form.confirmarPedido}" 
+											value="Confirmar"
+											onclick="showLoad();this.disable=true;"
+											action="#{abrirPedidoCredito_mb.confirmarCredito}"
+											reRender="panel-dados-pedido-credito"
+											oncomplete="Richfaces.showModalPanel('confirmar-pedido-credito-modal');hideLoad();this.disable=false;"/>
+										<a4j:commandButton  
+											value="Cancelar"
+											onclick="showLoad();this.disable=true;"
+											action="#{abrirPedidoCredito_mb.cancelar}"
+											reRender="panel-dados-pedido-credito" 
+											oncomplete="novoCredito();hideLoad();this.disable=false;"/>
+									</h:panelGrid>
+							</a4j:outputPanel>	
 						</div>
 					</div>
+					<ui:include src="/pages/cliente/panel/confirmar-pedido-credito.xhtml" />
 				</h:form>
 		</ui:define>
 	</ui:composition>

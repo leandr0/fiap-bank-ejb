@@ -1,8 +1,64 @@
+.div-dados{
+	background : #F5F5F5;
+	padding: 15px;
+}
 .label-input{
 	color:#000000;
 	font-family:Arial,Verdana,sans-serif;
 	font-size:11px;
 }
+.input-text{			
+	border: 1px red;
+	margin: 20px;
+	background : #ccc;
+}
+.rich-spinner-input{
+	width: 155px;
+} 
+.alert{
+	color:red;
+	font-family:Arial,Verdana,sans-serif;
+	font-size:11px;
+}
+
 #login{
 	 background:url(/web/resources/images/arearestrita.jpg) bottom no-repeat;
+}
+#mask{
+  	Z-INDEX: 1;
+	LEFT: 0px;
+	TOP: 0px;	
+	POSITION: absolute;	
+	background-color:#D0D0D0;
+}
+  
+  
+.mask-opacity{
+	FILTER: alpha(opacity=50);
+	opacity: .5;
+}
+  
+#boxes .window {
+  position:absolute;
+  left:0;
+  top:0;
+  width:440px;
+  height:200px;
+  display:none;
+  z-index:9999;
+}
+
+#boxes #dialog {
+  padding:10px;
+  background:url(/web/resources/images/ajax-loader.gif) no-repeat transparent center;
+}
+
+.data-table-column{
+	text-align: center;
+}
+.menu{
+	float: left;
+	background: #F5F5F5;
+	width: 28%;
+	height: 100%;
 }

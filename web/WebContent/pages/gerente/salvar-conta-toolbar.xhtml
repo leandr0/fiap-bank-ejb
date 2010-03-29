@@ -9,12 +9,17 @@
 	<a4j:outputPanel id="panel-salvar-conta-toolbar">
 		
 		<rich:toolBar>
-			<a4j:commandButton action="#{abrirConta_mb.abrirConta}"  
-				reRender="panel-cadastrar-senha"
-				value="Salvar" 
-				oncomplete="salvarConta();"/>
+			<rich:toolBarGroup>
+				<a4j:commandButton action="#{abrirConta_mb.abrirConta}"  
+					reRender="panel-cadastrar-senha"
+					value="Salvar" 
+					title="Salvar"
+					image="/resources/images/gravar.gif"
+					onclick="showLoad();this.disable=true;"
+					oncomplete="Richfaces.showModalPanel('cadastrar-senha-modal');hideLoad();this.disable=false;"/>
+			</rich:toolBarGroup>	
 		</rich:toolBar>
-		
+	
 	</a4j:outputPanel>
 	
 </html>

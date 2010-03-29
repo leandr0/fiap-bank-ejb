@@ -7,21 +7,49 @@
       xmlns:rich="http://richfaces.org/rich"
       xmlns:a4j="http://richfaces.org/a4j">
 	<a4j:outputPanel id="panel-endereco">
-		<h:panelGrid columns="2">
-			<h:outputLabel value="UF:" />
-			<h:inputText value="#{abrirConta_mb.model.correntista.usuario.endereco.uf}" />
-			<h:outputLabel value="Município:" />
-			<h:inputText value="#{abrirConta_mb.model.correntista.usuario.endereco.municipio}" />
-			<h:outputLabel value="Bairro:" />
-			<h:inputText value="#{abrirConta_mb.model.correntista.usuario.endereco.bairro}" />
-			<h:outputLabel value="Logradouro:" />
-			<h:inputText value="#{abrirConta_mb.model.correntista.usuario.endereco.logradouro}" />
-			<h:outputLabel value="Número:" />
-			<h:inputText value="#{abrirConta_mb.model.correntista.usuario.endereco.numero}" />
-			<h:outputLabel value="Complemento:" />
-			<h:inputText value="#{abrirConta_mb.model.correntista.usuario.endereco.complemento}" />
-			<h:outputLabel value="CEP:" />
-			<h:inputText value="#{abrirConta_mb.model.correntista.usuario.endereco.cep}" />
-		</h:panelGrid>
+		<div class="div-dados">
+			<h:panelGrid columns="2">
+				<h:outputLabel value="UF:" />
+				<h:panelGrid columns="2">
+					<h:inputText value="#{abrirConta_mb.model.correntista.usuario.endereco.uf}" size="2" maxlength="2"/>
+					<h:outputText value="*" styleClass="alert"/>
+				</h:panelGrid>	
+				
+				<h:outputLabel value="Município:" />
+				<h:panelGrid columns="2">
+					<h:inputText value="#{abrirConta_mb.model.correntista.usuario.endereco.municipio}" size="20"  maxlength="20"/>
+					<h:outputText value="*" styleClass="alert"/>
+				</h:panelGrid>	
+				
+				<h:outputLabel value="Bairro:" />
+				<h:panelGrid columns="2">
+					<h:inputText value="#{abrirConta_mb.model.correntista.usuario.endereco.bairro}" size="20"  maxlength="20"/>
+					<h:outputText value="*" styleClass="alert"/>
+				</h:panelGrid>	
+				
+				<h:outputLabel value="Logradouro:" />
+				<h:panelGrid columns="2">
+					<h:inputText value="#{abrirConta_mb.model.correntista.usuario.endereco.logradouro}" size="20"  maxlength="20"/>
+					<h:outputText value="*" styleClass="alert"/>
+				</h:panelGrid>	
+				
+				<h:outputLabel value="Número:" />
+				<h:panelGrid columns="2">
+					<h:inputText value="#{abrirConta_mb.model.correntista.usuario.endereco.numero}" size="10"  maxlength="10"/>
+					<h:outputText value="*" styleClass="alert"/>
+				</h:panelGrid>	
+				
+				<h:outputLabel value="Complemento:" />
+				<h:panelGrid columns="2">
+					<h:inputText value="#{abrirConta_mb.model.correntista.usuario.endereco.complemento}" size="20"  maxlength="20"/>
+				</h:panelGrid>	
+				
+				<h:outputLabel value="CEP:" />
+				<h:panelGrid columns="2">
+					<h:inputText value="#{abrirConta_mb.model.correntista.usuario.endereco.cep}" size="9"  maxlength="9"/>
+					<h:outputText value="*" styleClass="alert"/>
+				</h:panelGrid>	
+			</h:panelGrid>
+		</div>	
 	</a4j:outputPanel>
 </html>

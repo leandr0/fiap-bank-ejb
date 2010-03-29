@@ -1,6 +1,3 @@
-// testado no ff 2.0 ieca 6 7 e 8 robson
-
-
 function showLoad(){
 	
 	var maskHeight = j(document).height();
@@ -10,8 +7,6 @@ function showLoad(){
 
 	j('#mask').fadeIn(0);	
 		
-
-	//Get the window height and width
 	var winH = j(window).height();
 	var winW = j(window).width();
           

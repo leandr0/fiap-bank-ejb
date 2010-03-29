@@ -17,25 +17,28 @@
 							<ui:include src="/pages/gerente/cadastrar-conta.xhtml" />
 						</div>
 						
-						<div id="div-cadastrar-senha" style="display: none;">
-							<ui:include src="/pages/gerente/salvar-senha-toolbar.xhtml" />
-							<ui:include src="/pages/gerente/cadastrar-senha.xhtml" />
-						</div>
-					
 						<div id="div-numero-conta" style="display: none;">
 							<a4j:outputPanel id="panel-codigo-conta">
-								<h:panelGrid columns="2">
-									<h:outputText value="Número da Conta:"/>
-									<h:inputText value="#{abrirConta_mb.form.codigoConta}" disabled="true"/>
-									<h:outputLabel value="Conta criada com sucesso ......" style="color; red;"/>
-								</h:panelGrid>
-								<a4j:commandButton action="#{abrirConta_mb.inicializar}" value="Confirmar" />
+								<div class="div-dados">
+									<h:panelGrid columns="2">
+										<h:outputText value="Número da Conta:" styleClass="label-input"/>
+										<h:inputText value="#{abrirConta_mb.form.codigoConta}" disabled="true"/>
+										<h:outputLabel value="Conta criada com sucesso." styleClass="alert"/>
+									</h:panelGrid>
+								</div>
+								<a4j:commandButton action="#{abrirConta_mb.inicializar}" value="Confirmar" 
+										onclick="showLoad();this.disable=true;"
+										oncomplete="hideLoad();this.disable=false;"/>
 							</a4j:outputPanel>
+
 						</div>
 						
 					</a4j:outputPanel>
-				
+							
 				</h:form>
+				
 		</ui:define>
+		
 	</ui:composition>	
+	
 </html>

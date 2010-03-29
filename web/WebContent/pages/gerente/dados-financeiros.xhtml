@@ -7,14 +7,25 @@
       xmlns:rich="http://richfaces.org/rich"
       xmlns:a4j="http://richfaces.org/a4j">
 	<a4j:outputPanel id="panel-dados-financeiros">
-		<h:panelGrid columns="2">
-			<h:outputLabel value="Renda Mensal:" />
-			<h:inputText value="#{abrirConta_mb.model.correntista.rendaMensal}" />
-			<h:outputLabel value="Valor Patrimônio Total:" />
-			<h:inputText value="#{abrirConta_mb.model.correntista.valorTotalPatrimonio}" />
-			<h:outputLabel value="Gasto Mensal Aproximado:" />
-			<h:inputText value="#{abrirConta_mb.model.correntista.gastoMensalAproximado}" />
-		</h:panelGrid>
+		<div class="div-dados">
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Renda Mensal:" />
+				<h:panelGrid columns="2">
+					<h:inputText value="#{abrirConta_mb.model.correntista.rendaMensal}" />
+					<h:outputText value="*" styleClass="alert"/>
+				</h:panelGrid>	
+				<h:outputLabel value="Valor Patrimônio Total:" />
+				<h:panelGrid columns="2">
+					<h:inputText value="#{abrirConta_mb.model.correntista.valorTotalPatrimonio}" />
+					<h:outputText value="*" styleClass="alert"/>
+				</h:panelGrid>	
+				<h:outputLabel value="Gasto Mensal Aproximado:" />
+				<h:panelGrid columns="2">
+					<h:inputText value="#{abrirConta_mb.model.correntista.gastoMensalAproximado}" />
+					<h:outputText value="*" styleClass="alert"/>
+				</h:panelGrid>	
+			</h:panelGrid>
+		</div>	
 	</a4j:outputPanel>
 	
 </html>

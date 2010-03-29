@@ -106,4 +106,8 @@
  <security-role>
   <role-name>GERENTE</role-name>
  </security-role>
+ <error-page>
+ 	<error-code>403</error-code>
+ 	<location>/autentication-failure.jsp</location>
+ </error-page>
 </web-app>

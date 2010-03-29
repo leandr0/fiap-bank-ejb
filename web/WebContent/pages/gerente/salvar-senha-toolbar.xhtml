@@ -12,7 +12,8 @@
 			<a4j:commandButton action="#{abrirConta_mb.adicionarSenha}"
 				reRender="panel-cadastrar-senha , panel-codigo-conta"
 				value="Salvar"
-				oncomplete="salvarSenha();"/>
+				onclick="showLoad();this.disable=true;"
+				oncomplete="salvarSenha();hideLoad();this.disable=false;"/>
 		</rich:toolBar>
 	
 	</a4j:outputPanel>

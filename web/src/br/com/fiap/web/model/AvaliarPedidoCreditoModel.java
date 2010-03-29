@@ -13,6 +13,11 @@ public class AvaliarPedidoCreditoModel {
 
 	private Credito credito;
 
+	
+	public AvaliarPedidoCreditoModel() {
+		this.credito = new Credito();
+	}
+	
 	/**
 	 * @return the credito
 	 */

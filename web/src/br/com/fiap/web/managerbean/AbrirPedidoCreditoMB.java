@@ -6,7 +6,7 @@ package br.com.fiap.web.managerbean;
 import javax.ejb.EJB;
 
 import br.com.fiap.business.interfaces.local.AbrirPedidoCreditoLocal;
-import br.com.fiap.domain.entity.Conta;
+import br.com.fiap.domain.enums.StatusCredito;
 import br.com.fiap.web.form.AbrirPedidoCreditoForm;
 import br.com.fiap.web.model.AbrirPedidoCreditoModel;
 
@@ -32,15 +32,24 @@ public class AbrirPedidoCreditoMB extends ManagerBean{
 	public String solicitarCredito(){
 		
 		try{
-		business.abrirPedidoCredito(model.getCredito(), getConta());
+			business.avaliarPedidoCredito(model.getCredito(), getConta());
+			
+			if(!model.getCredito().getStatusCredito().equals(StatusCredito.RECUSADO))
+				form.setConfirmarPedido(true);
+			
 		}catch (Exception e) {
 		}
 		return null;
 	}
 	
 	public String confirmarCredito(){
-		inicializar();
-		return "menu";
+		try{
+			business.abrirPedidoCredito(model.getCredito(), getConta());
+			inicializar();
+		}catch (Exception e) {
+
+		}
+		return null;
 	}
 	
 	public String novaSolicitacaoCredito(){
@@ -54,6 +63,11 @@ public class AbrirPedidoCreditoMB extends ManagerBean{
 		model = new AbrirPedidoCreditoModel();
 		
 		return "abrir-pedido-credito";
+	}
+	
+	public String cancelar(){
+		inicializar();
+		return "menu";
 	}
 	
 	public AbrirPedidoCreditoForm getForm() {
