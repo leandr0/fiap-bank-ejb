@@ -18,10 +18,10 @@ public interface LoginRemote {
 	/**
 	 * 
 	 * @param login
-	 * @param senha
+	 * @param perfil
 	 * @return
 	 * @throws LoginException
 	 */
-	public Seguranca logar(String login, String senha) throws LoginException ;
+	public Seguranca logar(String login, String perfil) throws LoginException ;
 	
 }
