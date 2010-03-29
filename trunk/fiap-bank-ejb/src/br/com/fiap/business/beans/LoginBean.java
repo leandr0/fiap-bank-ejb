@@ -3,17 +3,16 @@
  */
 package br.com.fiap.business.beans;
 
+import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
-import javax.persistence.Query;
-import javax.security.auth.login.LoginContext;
 import javax.security.auth.login.LoginException;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.jboss.security.auth.callback.AppCallbackHandler;
 
+import br.com.fiap.business.dao.interfaces.SegurancaLocalDAO;
 import br.com.fiap.business.interfaces.local.LoginLocal;
 import br.com.fiap.business.interfaces.remote.LoginRemote;
 import br.com.fiap.domain.entity.Seguranca;
@@ -25,10 +24,10 @@ import br.com.fiap.domain.entity.Seguranca;
 @Stateless(name = "login")
 @Remote(LoginRemote.class)
 @Local(LoginLocal.class)
-public class LoginBean extends AbstractPersistenceContextBean implements
-		LoginLocal, LoginRemote {
+public class LoginBean implements LoginLocal, LoginRemote {
 
-	private LoginContext loginContext  = null;
+	@EJB
+	private SegurancaLocalDAO segurancaLocalDAO;
 	
 	/**
 	 * 
@@ -36,43 +35,21 @@ public class LoginBean extends AbstractPersistenceContextBean implements
 	private static Log LOG = LogFactory.getLog(LoginBean.class);
 	
 	@Override
-	public Seguranca logar(String login, String senha) throws LoginException {
+	public Seguranca logar(String login, String perfil) throws LoginException {
 
-		LOG.info("Logando para : " + login);
-
-		
+		LOG.info("Logando para : " + login);		
 		
 		Seguranca seguranca = null;
 
 		try {
-
-			/*
-			 * String jpql = "select c from "+Conta.class.getName()+" c "+
-			 * "inner join c.seguranca s "+ "where s.login = :login "+
-			 * "and s.senha = :senha";
-			 */
-
-			String jpql = "SELECT s FROM "+Seguranca.class.getName()+" s "
-						+"WHERE s.login = :login " + "AND s.perfil = :senha";
-
-			Query query = entityManager.createQuery(jpql);
-
-			query.setParameter("login", login).setParameter("senha", senha);
-
-			seguranca = (Seguranca) query.getSingleResult();
-		
+			
+			seguranca = segurancaLocalDAO.logar(login, perfil);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		return seguranca;
-
-	}
-
-	@Override
-	public void logout(String login, String senha) throws LoginException{
-		
-		loginContext.logout();
 
 	}
 }
