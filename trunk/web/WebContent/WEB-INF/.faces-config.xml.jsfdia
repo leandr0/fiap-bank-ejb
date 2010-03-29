@@ -2,46 +2,13 @@
 <PROCESS model-entity="JSFProcess">
  <PROCESS-ITEM NAME="rules:" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="gerente::#pages#gerente#page.xhtml"
-    NAME="output" PATH="/pages/gerente/page.xhtml"
-    TARGET="rules:#pages#gerente#page.xhtml" TITLE="gerente" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules::1" SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules::1" NAME="item" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT
-    ID="cliente::#pages#cliente#cadastro-parametro-calculo.xhtml"
-    NAME="output" PATH="/pages/cliente/cadastro-parametro-calculo.xhtml"
-    TARGET="rules:#pages#cliente#cadastro-parametro-calculo.xhtml"
-    TITLE="cliente" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules::2" SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules::2" NAME="item" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="login::#pages#login.xhtml" NAME="output"
-    PATH="/pages/login.xhtml" TARGET="rules:#pages#login.xhtml"
-    TITLE="login" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#pages#login.xhtml" PATH="/pages/login.xhtml"
-  SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#gerente#page.xhtml"
-  PATH="/pages/gerente/page.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM
-  NAME="rules:#pages#cliente#cadastro-parametro-calculo.xhtml"
-  PATH="/pages/cliente/cadastro-parametro-calculo.xhtml"
-  SHAPE="240,145,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules::3" SHAPE="32,353,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules::3" NAME="item" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="menu::#pages#menu.xhtml" NAME="output"
     PATH="/pages/menu.xhtml" TARGET="rules:#pages#menu.xhtml"
     TITLE="menu" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#pages#menu.xhtml" PATH="/pages/menu.xhtml"
-  SHAPE="240,369,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules::4" SHAPE="32,465,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules::4" NAME="item" model-entity="JSFProcessItem">
+ <PROCESS-ITEM NAME="rules::1" SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::1" NAME="item" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
     ID="avaliar-pedido-credito::#pages#gerente#avaliar-pedido-credito.xhtml"
     NAME="output" PATH="/pages/gerente/avaliar-pedido-credito.xhtml"
@@ -49,20 +16,16 @@
     TITLE="avaliar-pedido-credito" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#pages#gerente#avaliar-pedido-credito.xhtml"
-  PATH="/pages/gerente/avaliar-pedido-credito.xhtml" SHAPE="240,481,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules::5" SHAPE="32,577,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules::5" NAME="item" model-entity="JSFProcessItem">
+ <PROCESS-ITEM NAME="rules::2" SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::2" NAME="item" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
     ID="abrir-conta::#pages#gerente#abrir-conta.xhtml" NAME="output"
     PATH="/pages/gerente/abrir-conta.xhtml"
     TARGET="rules:#pages#gerente#abrir-conta.xhtml" TITLE="abrir-conta" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#pages#gerente#abrir-conta.xhtml"
-  PATH="/pages/gerente/abrir-conta.xhtml" SHAPE="240,593,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules::6" SHAPE="32,689,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules::6" NAME="item" model-entity="JSFProcessItem">
+ <PROCESS-ITEM NAME="rules::3" SHAPE="32,353,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::3" NAME="item" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
     ID="abrir-pedido-credito::#pages#cliente#abrir-pedido-credito.xhtml"
     NAME="output" PATH="/pages/cliente/abrir-pedido-credito.xhtml"
@@ -70,10 +33,10 @@
     TITLE="abrir-pedido-credito" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#pages#cliente#abrir-pedido-credito.xhtml"
-  PATH="/pages/cliente/abrir-pedido-credito.xhtml" SHAPE="240,705,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules::7" SHAPE="32,801,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules::7" NAME="item" model-entity="JSFProcessItem">
+ <PROCESS-ITEM NAME="rules:#pages#menu.xhtml" PATH="/pages/menu.xhtml"
+  SHAPE="240,369,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::4" SHAPE="32,465,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::4" NAME="item" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
     ID="consulta-pedido-credito::#pages#cliente#consulta-pedido-credito.xhtml"
     NAME="output" PATH="/pages/cliente/consulta-pedido-credito.xhtml"
@@ -81,11 +44,10 @@
     TITLE="consulta-pedido-credito" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#pages#cliente#consulta-pedido-credito.xhtml"
-  PATH="/pages/cliente/consulta-pedido-credito.xhtml"
-  SHAPE="240,817,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules::8" SHAPE="32,913,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules::8" NAME="item" model-entity="JSFProcessItem">
+ <PROCESS-ITEM NAME="rules:#pages#gerente#avaliar-pedido-credito.xhtml"
+  PATH="/pages/gerente/avaliar-pedido-credito.xhtml" SHAPE="240,481,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::5" SHAPE="32,577,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::5" NAME="item" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
     ID="avaliar-pedido-credito::#pages#gerente#avaliar-pedido-credito.xhtml"
     NAME="output" PATH="/pages/gerente/avaliar-pedido-credito.xhtml"
@@ -93,4 +55,11 @@
     TITLE="avaliar-pedido-credito" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#gerente#abrir-conta.xhtml"
+  PATH="/pages/gerente/abrir-conta.xhtml" SHAPE="240,593,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#cliente#abrir-pedido-credito.xhtml"
+  PATH="/pages/cliente/abrir-pedido-credito.xhtml" SHAPE="240,705,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#cliente#consulta-pedido-credito.xhtml"
+  PATH="/pages/cliente/consulta-pedido-credito.xhtml"
+  SHAPE="240,817,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

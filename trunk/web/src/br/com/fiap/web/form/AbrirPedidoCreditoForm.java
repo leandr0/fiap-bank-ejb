@@ -9,13 +9,13 @@ package br.com.fiap.web.form;
  */
 public class AbrirPedidoCreditoForm {
 
-	private String statusPedido;
+	private boolean confirmarPedido = false;
 
-	public String getStatusPedido() {
-		return statusPedido;
+	public boolean isConfirmarPedido() {
+		return confirmarPedido;
 	}
 
-	public void setStatusPedido(String statusPedido) {
-		this.statusPedido = statusPedido;
+	public void setConfirmarPedido(boolean confirmarPedido) {
+		this.confirmarPedido = confirmarPedido;
 	}
 }

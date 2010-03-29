@@ -8,10 +8,11 @@
       xmlns:a4j="http://richfaces.org/a4j">
 
 	<a4j:outputPanel id="panel-lista-credito">
-	
+		<div class="div-dados" style="80%">
 		<rich:dataTable value="#{consultar_pedido_credito_mb.form.listaCreditos}"
 			rendered="#{not empty consultar_pedido_credito_mb.form.listaCreditos}"
-			var="credito" width="100%" rows="10">
+			var="credito" width="100%" rows="10" id="data-lista-credito"
+			rowClasses="data-table-column">
 			<rich:column>
 				<f:facet name="header">
 					<h:outputLabel value="Valor do Crédito"/>
@@ -20,7 +21,7 @@
 			</rich:column>
 			<rich:column>
 				<f:facet name="header">
-					<h:outputLabel value="Nr meses pagamento"/>
+					<h:outputLabel value="Número de meses para pagar"/>
 				</f:facet>
 				<h:outputText value="#{credito.numeroMesesPagamento}" />
 			</rich:column>
@@ -30,11 +31,11 @@
 				</f:facet>
 				<h:outputText value="#{credito.statusCredito}" />
 			</rich:column>
-			<f:facet name="footer">
-            	<rich:datascroller id="datascroller-pedido-credito" renderIfSinglePage="false"></rich:datascroller>
-        	</f:facet> 
 		</rich:dataTable>
 		
+		<rich:datascroller for="data-lista-credito" id="datascroller-pedido-credito" renderIfSinglePage="false"></rich:datascroller>
+		</div>
+		<a4j:commandButton action="menu" value="Voltar"/>
 	</a4j:outputPanel>
 
 </html>

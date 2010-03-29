@@ -9,6 +9,31 @@
 	xmlns:c="http://java.sun.com/jstl/core">
 
 	<ui:composition template="/template/template.xhtml">
+		<ui:define name="body">
+				<h:form id="form-menu">
+					<a4j:outputPanel >
+						<div class="menu" style="width: 280px;margin-top: 10px;">
+							<fieldset>
+								<legend>MENU</legend>
+							<h:panelGrid>
+									<a4j:commandLink value="Abrir uma conta"
+													action="#{abrirConta_mb.inicializar}"
+													reRender="panel-abrir-conta,panel-dados-pessoais;
+													panel-dados-financeiros,panel-endereco "/>
+									<a4j:commandLink action="#{abrirPedidoCredito_mb.inicializar}"
+													reRender="panel-dados-pedido-credito" 
+													value="Abrir pedido de crédito"/>
+									<a4j:commandLink value="Consultar pedidos de crédito"
+													action="#{consultar_pedido_credito_mb.consultarCredito}"/>
+									<a4j:commandLink value="Avaliar pedidos de abertura de crédito"
+													action="#{avaliar_pedido_credito_mb.carregarListaCredito}"
+													reRender="panel-lista-credito"/>
+							</h:panelGrid>
+							</fieldset>
+						</div>
+				</a4j:outputPanel>
+			</h:form>
+		</ui:define>
 	</ui:composition>
 
 </html>

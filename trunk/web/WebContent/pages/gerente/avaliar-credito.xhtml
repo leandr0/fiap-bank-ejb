@@ -8,38 +8,41 @@
       xmlns:a4j="http://richfaces.org/a4j">
 
 	<a4j:outputPanel id="panel-avaliar-credito">
-		
-		<h:panelGrid columns="2">
-			<h:outputLabel value="Nome Cliente:"/>
-			<h:outputText value="#{avaliar_pedido_credito_mb.model.credito.conta.correntista.usuario.nome}" />
-			
-			<h:outputLabel value="Número Conta:"/>
-			<h:outputText value="#{avaliar_pedido_credito_mb.model.credito.conta.codigoConta}" />
-			
-			<h:outputLabel value="Vslor Crédito:"/>
-			<h:outputText value="#{avaliar_pedido_credito_mb.model.credito.valorCredito}" />
-			
-			<h:outputLabel value="Quantidade Parcelas:"/>
-			<h:outputText value="#{avaliar_pedido_credito_mb.model.credito.numeroMesesPagamento}" />
-			
-			<h:outputLabel value="Renda Mensal:"/>
-			<h:outputText value="#{avaliar_pedido_credito_mb.model.credito.conta.correntista.rendaMensal}" />
-			
-			<h:outputLabel value="Gasto Mensal:"/>
-			<h:outputText value="#{avaliar_pedido_credito_mb.model.credito.conta.correntista.gastoMensalAproximado}" />
-			
-			<h:outputLabel value="Patrimônio:"/>
-			<h:outputText value="#{avaliar_pedido_credito_mb.model.credito.conta.correntista.valorTotalPatrimonio}" />
-		</h:panelGrid>
-	
+		<div class="div-dados">
+			<h:panelGrid columns="2" columnClasses="label-input">
+				<h:outputLabel value="Nome Cliente:"/>
+				<h:inputText value="#{avaliar_pedido_credito_mb.model.credito.conta.correntista.usuario.nome}" readonly="true" size="30"/>
+				
+				<h:outputLabel value="Número Conta:"/>
+				<h:inputText value="#{avaliar_pedido_credito_mb.model.credito.conta.codigoConta}" readonly="true" size="6"/>
+				
+				<h:outputLabel value="Valor Crédito:"/>
+				<h:inputText value="#{avaliar_pedido_credito_mb.model.credito.valorCredito}" readonly="true" size="10"/>
+				
+				<h:outputLabel value="Quantidade Parcelas:"/>
+				<h:inputText value="#{avaliar_pedido_credito_mb.model.credito.numeroMesesPagamento}" readonly="true" size="2"/>
+				
+				<h:outputLabel value="Renda Mensal:"/>
+				<h:inputText value="#{avaliar_pedido_credito_mb.model.credito.conta.correntista.rendaMensal}" readonly="true" size="10"/>
+				
+				<h:outputLabel value="Gasto Mensal:"/>
+				<h:inputText value="#{avaliar_pedido_credito_mb.model.credito.conta.correntista.gastoMensalAproximado}" readonly="true" size="10"/>
+				
+				<h:outputLabel value="Patrimônio:"/>
+				<h:inputText value="#{avaliar_pedido_credito_mb.model.credito.conta.correntista.valorTotalPatrimonio}" readonly="true" size="10"/>
+			</h:panelGrid>
+		</div>
 		<h:panelGrid columns="3" >
-			<a4j:commandButton action="#{avaliar_pedido_credito_mb.aprovarCredito}" 
-								value="Aprovar Crédito" oncomplete="exibirListaCredito();"
-								reRender="panel-lista-pedido-credito"/>
-			<a4j:commandButton action="#{avaliar_pedido_credito_mb.reprovarCredito}" 
-								value="Rejeitar" oncomplete="exibirListaCredito();"
-								reRender="panel-lista-pedido-credito"/>
-			<a4j:commandButton value="Voltar" onclick="exibirListaCredito();"/>
+				<a4j:commandButton action="#{avaliar_pedido_credito_mb.aprovarCredito}"
+									onclick="showLoad();this.disable=true;" 
+									value="Aprovar" oncomplete="exibirListaCredito();hideLoad();this.disable=false;"
+									reRender="panel-lista-pedido-credito"/>
+				<a4j:commandButton action="#{avaliar_pedido_credito_mb.reprovarCredito}"
+									onclick="showLoad();this.disable=true;" 
+									value="Rejeitar" oncomplete="exibirListaCredito();hideLoad();this.disable=false;"
+									reRender="panel-lista-pedido-credito"/>
+				<a4j:commandButton value="Voltar" onclick="exibirListaCredito();showLoad();this.disable=true;"
+									oncomplete="hideLoad();this.disable=false;"/>
 		</h:panelGrid>
 	</a4j:outputPanel>
 

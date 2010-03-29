@@ -8,17 +8,15 @@
       xmlns:a4j="http://richfaces.org/a4j">
 	
 	<a4j:outputPanel id="panel-dados-pedido-credito">
-	
-		<h:panelGrid columns="2">
-			<h:outputLabel value="Valor Crédito:" styleClass="label-input"/>
-			<h:inputText value="#{abrirPedidoCredito_mb.model.credito.valorCredito}" />
-			<h:outputLabel value="Número de Meses:" styleClass="label-input"/>
-			 <rich:inputNumberSpinner value="#{abrirPedidoCredito_mb.model.credito.numeroMesesPagamento}"
-			 	step="1" minValue="1"/>
-			<h:outputLabel value="Status Pedido:" styleClass="label-input"/>
-			<h:inputText value="#{abrirPedidoCredito_mb.model.credito.statusCredito}" disabled="true"/>
-		</h:panelGrid>
-		
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Valor Crédito:" styleClass="label-input"/>
+				<h:inputText value="#{abrirPedidoCredito_mb.model.credito.valorCredito}" size="25"  maxlength="10"/>
+				<h:outputLabel value="Número de Meses:" styleClass="label-input"/>
+				 <rich:inputNumberSpinner value="#{abrirPedidoCredito_mb.model.credito.numeroMesesPagamento}"
+				 	step="1" minValue="1" />
+				<h:outputLabel value="Status Pedido:" styleClass="label-input"/>
+				<h:inputText value="#{abrirPedidoCredito_mb.model.credito.statusCredito}" disabled="true" size="25"/>
+			</h:panelGrid>
 	</a4j:outputPanel>
 
 </html>

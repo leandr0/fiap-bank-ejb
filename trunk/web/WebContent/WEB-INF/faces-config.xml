@@ -29,27 +29,6 @@
  </managed-bean>
  <navigation-rule>
   <navigation-case>
-   <from-outcome>gerente</from-outcome>
-   <to-view-id>/pages/gerente/page.xhtml</to-view-id>
-   <redirect/>
-  </navigation-case>
- </navigation-rule>
- <navigation-rule>
-  <navigation-case>
-   <from-outcome>cliente</from-outcome>
-   <to-view-id>/pages/cliente/cadastro-parametro-calculo.xhtml</to-view-id>
-   <redirect/>
-  </navigation-case>
- </navigation-rule>
- <navigation-rule>
-  <navigation-case>
-   <from-outcome>login</from-outcome>
-   <to-view-id>/pages/login.xhtml</to-view-id>
-   <redirect/>
-  </navigation-case>
- </navigation-rule>
- <navigation-rule>
-  <navigation-case>
    <from-outcome>menu</from-outcome>
    <to-view-id>/pages/menu.xhtml</to-view-id>
    <redirect/>
@@ -75,14 +54,14 @@
    <redirect/>
   </navigation-case>
  </navigation-rule>
-  <navigation-rule>
+ <navigation-rule>
   <navigation-case>
    <from-outcome>consulta-pedido-credito</from-outcome>
    <to-view-id>/pages/cliente/consulta-pedido-credito.xhtml</to-view-id>
    <redirect/>
   </navigation-case>
  </navigation-rule>
-  <navigation-rule>
+ <navigation-rule>
   <navigation-case>
    <from-outcome>avaliar-pedido-credito</from-outcome>
    <to-view-id>/pages/gerente/avaliar-pedido-credito.xhtml</to-view-id>

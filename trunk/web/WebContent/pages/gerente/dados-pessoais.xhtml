@@ -7,16 +7,38 @@
       xmlns:rich="http://richfaces.org/rich"
       xmlns:a4j="http://richfaces.org/a4j">
 	<a4j:outputPanel id="panel-dados-pessoais">
-		<h:panelGrid columns="2" >
-			<h:outputLabel value="Nome:" styleClass="label-input"/>
-			<h:inputText value="#{abrirConta_mb.model.correntista.usuario.nome}" />
-			<h:outputLabel value="RG:" styleClass="label-input"/>
-			<h:inputText value="#{abrirConta_mb.model.correntista.usuario.rg}" />
-			<h:outputLabel value="CPF:" styleClass="label-input"/>
-			<h:inputText value="#{abrirConta_mb.model.correntista.usuario.cpf}" />
-			<h:outputLabel value="Telefone:" styleClass="label-input"/>
-			<h:inputText value="#{abrirConta_mb.model.correntista.usuario.telefone}" />
-		</h:panelGrid>
+		<div class="div-dados">
+			<h:panelGrid columns="2" >
+				<h:outputLabel value="Nome:" styleClass="label-input"/>
+				<h:panelGrid columns="2">
+					<h:inputText value="#{abrirConta_mb.model.correntista.usuario.nome}" maxlength="30" size="30"/>
+					<h:outputText value="*" styleClass="alert"/>
+				</h:panelGrid>
+				
+				<h:outputLabel value="RG:" styleClass="label-input"/>
+				<h:panelGrid columns="2">
+					<h:inputText value="#{abrirConta_mb.model.correntista.usuario.rg}" />
+					<h:outputText value="*" styleClass="alert"/>
+				</h:panelGrid>
+				
+				<h:outputLabel value="CPF:" styleClass="label-input"/>
+				<h:panelGrid columns="2">
+					<h:inputText value="#{abrirConta_mb.model.correntista.usuario.cpf}" />
+					<h:outputText value="*" styleClass="alert"/>
+				</h:panelGrid>
+				
+				<h:outputLabel value="Telefone:" styleClass="label-input"/>
+				<h:panelGrid columns="2">
+					<h:inputText value="#{abrirConta_mb.model.correntista.usuario.telefone}" />
+					<h:outputText value="*" styleClass="alert"/>
+				</h:panelGrid>
+			</h:panelGrid>
+			<div style="margin-top: 10px; display: table; width: 100%">
+				<div style="float: right;">
+					<h:outputText value="* Campos Obrigatórios  " styleClass="alert"/>
+				</div>						
+			</div>
+		</div>
 	</a4j:outputPanel>
 
 </html>
