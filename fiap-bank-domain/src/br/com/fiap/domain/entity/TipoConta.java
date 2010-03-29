@@ -24,7 +24,7 @@ public class TipoConta implements EntityBasic{
 	@Column(name = "ID")
 	private Long id;
 
-	@Column(name = "DECRICAO", nullable = false)
+	@Column(name = "DESCRICAO", nullable = false)
 	private String descricao;
 	
 	@OneToMany(mappedBy = "tipoConta")
