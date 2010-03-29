@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j">
+      
+    <rich:modalPanel 	id="cadastrar-senha-modal" 
+    					width="140" 
+    					height="90" 
+    					autosized="true">
+    					
+    	<f:facet name="header">
+    		<h:panelGroup>
+    			<h:outputLabel value="Cadastrar Senha"/>
+    		</h:panelGroup>
+    	</f:facet>
+    	
+    	<f:facet name="controls">
+        	<h:panelGroup>
+            	<h:graphicImage value="/resources/images/close.png" style="cursor:pointer" id="close-cadastrar-senha-modal"/>
+               	<rich:componentControl 	for="cadastrar-senha-modal" 
+                						attachTo="close-cadastrar-senha-modal" 
+                						operation="hide" 
+                						event="onclick"/>
+            </h:panelGroup>
+        </f:facet> 
+	
+		<a4j:form id="form-cadastrar-senha">		
+			
+			<a4j:outputPanel id="panel-cadastrar-senha">
+				<div style="margin-bottom: 10px;">
+					<h:panelGrid columns="2">
+						<h:outputLabel value="Senha:" />
+						<h:panelGrid columns="2"> 
+							<h:inputSecret value="#{abrirConta_mb.model.seguranca.senha}" />
+							<h:outputText value="*" styleClass="alert"/>
+						</h:panelGrid>
+					</h:panelGrid>
+				</div>
+				<div align="center">
+					<a4j:commandButton 	 
+							action="#{abrirConta_mb.adicionarSenha}"
+							onclick="showLoad();this.disable=true;Richfaces.hideModalPanel('cadastrar-senha-modal');"
+							oncomplete="salvarSenha();hideLoad();this.disable=false;"
+							reRender="panel-cadastrar-senha , panel-codigo-conta"
+							value="Salvar"/>
+				</div>		
+			</a4j:outputPanel>			
+		</a4j:form>
+		
+		</rich:modalPanel>
+</html>
