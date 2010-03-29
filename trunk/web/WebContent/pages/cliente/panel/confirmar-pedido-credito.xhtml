@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j">
+      
+    <rich:modalPanel 	id="confirmar-pedido-credito-modal" 
+    					width="350" 
+    					height="90" 
+    					autosized="true">
+
+    	<f:facet name="header">
+    		<h:panelGroup>
+    			<h:outputLabel value="Confirmação de Crédito"/>
+    		</h:panelGroup>
+    	</f:facet>
+    	
+    	<f:facet name="controls">
+        	<h:panelGroup>
+            	<h:graphicImage value="/resources/images/close.png" style="cursor:pointer" id="close-confirmar-pedido-credito-modal"/>
+               	<rich:componentControl 	for="confirmar-pedido-credito-modal" 
+                						attachTo="close-confirmar-padido-credito-modal" 
+                						operation="hide" 
+                						event="onclick"/>
+            </h:panelGroup>
+        </f:facet> 
+	
+		<a4j:form id="form-confirmar-credito">		
+			
+			<a4j:outputPanel id="panel-confirmar-pedido-credito">
+				 
+				<div align="center" style="margin-bottom: 10px;">
+						<h:outputText value="Solicitação de crédito cadastrada com sucesso." styleClass="alert"/>				
+				</div>
+				<div align="center">
+					<a4j:commandButton
+								action="menu" 	 
+								onclick="Richfaces.hideModalPanel('confirmar-pedido-credito-modal');novoCredito();"
+								value="OK"/>
+					
+				</div>		
+			</a4j:outputPanel>			
+		</a4j:form>
+		
+		</rich:modalPanel>
+</html>
