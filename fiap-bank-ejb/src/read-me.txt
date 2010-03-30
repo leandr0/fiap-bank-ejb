@@ -12,6 +12,10 @@ Na pasta lib do servidor é necessário conter as seguintes bibliotecas:
 	commons-digester.jar
 	commons-lang-2.4.jar
 	mysql-connector-java-5.1.6-bin.jar
+	jsf-facelets.jar (na versão 1.1.15)
+	richfaces-ui-3.3.1.GA.jar
+	richfaces-api-3.3.1.GA.jar
+	richfaces-impl-3.3.1.GA.jar
 	
 Na aplicação existe uma barra de menu onde na margem superior direita existem dois botões um que direciona 
 para a tela inicial e outro responsável pelo logout. 	
