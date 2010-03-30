@@ -1,0 +1,17 @@
+Este projeto foi desenvolvido com o jboss-5.1.0.GA.
+Antes de subir a aplicação deve ser criado um novo Schema com o nome de "fiap_bank_ejb"
+Os arquivos de configuração como o "login-config.xml" e "mysql-ds.xml" estão dentro da pasta
+conf do projeto "fiap-bank-ejb",o unico arquivo que pode necessitar alguma modificação é o
+"mysql-ds.xml" pois nele está contido as configurações de acesso a base de dados como login 
+e senha.
+Para acessar o sistema deve-se acessar "http://[host]:[port]/fiap-bank-web"
+O sistema irá criar as tabelas automáticamente, após o deploy da aplicação deve-se rodar o script 
+"init.sql" que está dentro da pasta conf do projeto "fiap-bank-ejb".
+Na pasta lib do servidor é necessário conter as seguintes bibliotecas:
+	commons-beanutils.jar
+	commons-digester.jar
+	commons-lang-2.4.jar
+	mysql-connector-java-5.1.6-bin.jar
+	
+Na aplicação existe uma barra de menu onde na margem superior direita existem dois botões um que direciona 
+para a tela inicial e outro responsável pelo logout. 	
