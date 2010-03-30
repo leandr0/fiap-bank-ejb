@@ -11,10 +11,11 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.fiap.business.dao.interfaces.SegurancaLocalDAO;
+import br.com.fiap.business.exceptions.DAOException;
 import br.com.fiap.domain.entity.Seguranca;
 
 /**
- * @author User
+ * @author leandro.goncalves
  *
  */
 @Stateless(name = "segurancaDAO")
@@ -25,7 +26,7 @@ public class SegurancaDAO extends GenericDAO<Seguranca> implements SegurancaLoca
 	 * @see br.com.fiap.business.dao.interfaces.SegurancaLocalDAO#logar(java.lang.String, java.lang.String)
 	 */
 	@Override
-	public Seguranca logar(String login, String perfil) {
+	public Seguranca logar(String login, String perfil) throws DAOException{
 		
 		Criteria criteria = ((Session)entityManager.getDelegate()).createCriteria(Seguranca.class);
 		

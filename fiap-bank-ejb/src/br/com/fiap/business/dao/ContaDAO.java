@@ -10,7 +10,7 @@ import br.com.fiap.business.dao.interfaces.ContaLocalDAO;
 import br.com.fiap.domain.entity.Conta;
 
 /**
- * @author User
+ * @author leandro.goncalves
  *
  */
 @Stateless(name = "contaDAO")
