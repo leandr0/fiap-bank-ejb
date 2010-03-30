@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-Class-Path: fiap-bank-ejb.jar 
- lib/commons-lang-2.4.jar
-
