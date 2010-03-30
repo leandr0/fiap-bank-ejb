@@ -35,6 +35,9 @@ public class CreditoDAO extends GenericDAO<Credito> implements CreditoLocalDAO {
 	@Override
 	public List<Credito> listarCreditoConta(Conta conta) throws DAOException{
 		
+		if(conta == null)
+			return null;
+		
 		Criteria criteria = ((Session)entityManager.getDelegate()).createCriteria(Credito.class);
 		
 		return criteria.addOrder(Order.asc("statusCredito"))
