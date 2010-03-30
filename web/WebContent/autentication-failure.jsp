@@ -16,7 +16,7 @@
 							<h5 >
 								Clique no link abaixo para voltar ao menu inicial. 
 							</h5>
-							<a href="/web/pages/menu.jsf">MENU</a>
+							<a href="/fiap-bank-web/pages/menu.jsf">MENU</a>
 						</div>
 					</fieldset>
 				</div>

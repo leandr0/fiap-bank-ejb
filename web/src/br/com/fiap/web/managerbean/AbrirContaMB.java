@@ -28,11 +28,8 @@ public class AbrirContaMB extends ManagerBean{
 
 	public String abrirConta(){
 
-		try{
-			business.abrirConta(model.getCorrentista(),
-					getAgencia());
-		}catch (Exception e) {
-		}
+		business.abrirConta(model.getCorrentista(),getAgencia());
+		
 		return null;
 	}
 

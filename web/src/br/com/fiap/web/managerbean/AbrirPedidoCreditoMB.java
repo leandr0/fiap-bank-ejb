@@ -17,31 +17,28 @@ import br.com.fiap.web.model.AbrirPedidoCreditoModel;
 public class AbrirPedidoCreditoMB extends ManagerBean{
 
 	private AbrirPedidoCreditoForm form;
-	
+
 	private AbrirPedidoCreditoModel model;
-	
+
 	@EJB
 	private AbrirPedidoCreditoLocal business;
 
-	
+
 	public AbrirPedidoCreditoMB() {
 		inicializar();
 	}
-	
-	
+
+
 	public String solicitarCredito(){
-		
-		try{
-			business.avaliarPedidoCredito(model.getCredito(), getConta());
-			
-			if(!model.getCredito().getStatusCredito().equals(StatusCredito.RECUSADO))
-				form.setConfirmarPedido(true);
-			
-		}catch (Exception e) {
-		}
+
+		business.avaliarPedidoCredito(model.getCredito(), getConta());
+
+		if(!model.getCredito().getStatusCredito().equals(StatusCredito.RECUSADO))
+			form.setConfirmarPedido(true);
+
 		return null;
 	}
-	
+
 	public String confirmarCredito(){
 		try{
 			business.abrirPedidoCredito(model.getCredito(), getConta());
@@ -51,25 +48,25 @@ public class AbrirPedidoCreditoMB extends ManagerBean{
 		}
 		return null;
 	}
-	
+
 	public String novaSolicitacaoCredito(){
 		inicializar();
 		return null;
 	}
-	
+
 	public String inicializar(){
-		
+
 		form  = new AbrirPedidoCreditoForm();
 		model = new AbrirPedidoCreditoModel();
-		
+
 		return "abrir-pedido-credito";
 	}
-	
+
 	public String cancelar(){
 		inicializar();
 		return "menu";
 	}
-	
+
 	public AbrirPedidoCreditoForm getForm() {
 		return form;
 	}

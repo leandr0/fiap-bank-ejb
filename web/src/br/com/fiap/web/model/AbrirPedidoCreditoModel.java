@@ -6,7 +6,7 @@ package br.com.fiap.web.model;
 import br.com.fiap.domain.entity.Credito;
 
 /**
- * @author User
+ * @author leandro.goncalves
  *
  */
 public class AbrirPedidoCreditoModel {
