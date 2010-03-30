@@ -3,14 +3,13 @@
  */
 package br.com.fiap.web.model;
 
-import br.com.fiap.domain.entity.Conta;
 import br.com.fiap.domain.entity.Correntista;
 import br.com.fiap.domain.entity.Endereco;
 import br.com.fiap.domain.entity.Seguranca;
 import br.com.fiap.domain.entity.Usuario;
 
 /**
- * @author User
+ * @author leandro.goncalves
  *
  */
 public class AbrirContaModel {

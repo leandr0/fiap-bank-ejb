@@ -8,7 +8,6 @@ import java.security.Principal;
 import javax.ejb.EJB;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.security.auth.login.LoginException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -55,7 +54,7 @@ public abstract class ManagerBean {
 		return getExternalContext().getRequestMap().get(attributeName);
 	}
 	
-	protected Conta getConta() throws LoginException{
+	protected Conta getConta() {
 		
 		HttpServletRequest request =  (HttpServletRequest) getExternalContext().getRequest();
 		Principal principal = request.getUserPrincipal();
@@ -63,7 +62,7 @@ public abstract class ManagerBean {
 		return business.logar(principal.getName(), "CLIENTE").getConta();
 	}
 	
-	protected Agencia getAgencia() throws LoginException{
+	protected Agencia getAgencia(){
 		
 		HttpServletRequest request =  (HttpServletRequest) getExternalContext().getRequest();
 		Principal principal = request.getUserPrincipal();

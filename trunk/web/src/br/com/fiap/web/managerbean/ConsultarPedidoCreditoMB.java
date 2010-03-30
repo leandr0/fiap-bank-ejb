@@ -29,11 +29,9 @@ public class ConsultarPedidoCreditoMB extends ManagerBean{
 
 
 	public String consultarCredito(){
-		try{
-			form.setListaCreditos(
-					business.consultarPedidosCredito(getConta()));
-		}catch (Exception e) {
-		}
+		
+		form.setListaCreditos(business.consultarPedidosCredito(getConta()));
+		
 		return "consulta-pedido-credito";
 	}
 

@@ -4,7 +4,7 @@
 package br.com.fiap.web.form;
 
 /**
- * @author User
+ * @author leandro.goncalves
  *
  */
 public class AbrirPedidoCreditoForm {
