@@ -14,6 +14,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.fiap.business.dao.interfaces.CreditoLocalDAO;
+import br.com.fiap.business.exceptions.DAOException;
 import br.com.fiap.domain.entity.Conta;
 import br.com.fiap.domain.entity.Credito;
 import br.com.fiap.domain.enums.StatusCredito;
@@ -27,8 +28,12 @@ import br.com.fiap.domain.enums.StatusCredito;
 @Local(CreditoLocalDAO.class)
 public class CreditoDAO extends GenericDAO<Credito> implements CreditoLocalDAO {
 
+	/*
+	 * (non-Javadoc)
+	 * @see br.com.fiap.business.dao.interfaces.CreditoLocalDAO#listarCreditoConta(br.com.fiap.domain.entity.Conta)
+	 */
 	@Override
-	public List<Credito> listarCreditoConta(Conta conta) {
+	public List<Credito> listarCreditoConta(Conta conta) throws DAOException{
 		
 		Criteria criteria = ((Session)entityManager.getDelegate()).createCriteria(Credito.class);
 		
@@ -36,8 +41,12 @@ public class CreditoDAO extends GenericDAO<Credito> implements CreditoLocalDAO {
 				.add(Restrictions.eq("conta.id", conta.getId())).list();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see br.com.fiap.business.dao.interfaces.CreditoLocalDAO#listaCreditoAvaliacao()
+	 */
 	@Override
-	public List<Credito> listaCreditoAvaliacao() {
+	public List<Credito> listaCreditoAvaliacao() throws DAOException{
 		
 		Criteria criteria = ((Session)entityManager.getDelegate()).createCriteria(Credito.class);
 		

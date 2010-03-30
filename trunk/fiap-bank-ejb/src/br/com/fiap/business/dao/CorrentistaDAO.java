@@ -10,11 +10,10 @@ import br.com.fiap.business.dao.interfaces.CorrentistaLocalDAO;
 import br.com.fiap.domain.entity.Correntista;
 
 /**
- * @author User
+ * @author leandro.goncalves
  *
  */
 @Stateless(name = "correntistaDAO")
 @Local(CorrentistaLocalDAO.class)
-public class CorrentistaDAO extends GenericDAO<Correntista> implements
-		CorrentistaLocalDAO {
+public class CorrentistaDAO extends GenericDAO<Correntista> implements CorrentistaLocalDAO {
 }
