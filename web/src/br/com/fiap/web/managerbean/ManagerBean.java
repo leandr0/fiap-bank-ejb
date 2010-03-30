@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import br.com.fiap.business.interfaces.local.LoginLocal;
 import br.com.fiap.domain.entity.Agencia;
 import br.com.fiap.domain.entity.Conta;
+import br.com.fiap.domain.entity.Seguranca;
 
 /**
  * @author leandro.goncalves
@@ -28,6 +29,8 @@ public abstract class ManagerBean {
 	@EJB
 	private LoginLocal business;
 	
+	protected String user;
+	
 	public ManagerBean() {
 		createNewSession();
 	}
@@ -35,6 +38,14 @@ public abstract class ManagerBean {
 	private void createNewSession(){
 		session = (HttpSession) 
 		getExternalContext().getSession(true);
+	}
+	
+	public String getUser(){
+		
+		HttpServletRequest request =  (HttpServletRequest) getExternalContext().getRequest();
+		Principal principal = request.getUserPrincipal();
+		
+		return principal.getName();
 	}
 	
 	protected void setAttributeInSession(String attributeName, Object value){
@@ -59,13 +70,23 @@ public abstract class ManagerBean {
 		HttpServletRequest request =  (HttpServletRequest) getExternalContext().getRequest();
 		Principal principal = request.getUserPrincipal();
 		
-		return business.logar(principal.getName(), "CLIENTE").getConta();
+		Seguranca seguranca = business.logar(principal.getName(), "CLIENTE");
+		
+		if(seguranca == null)
+			return null;
+		
+		return seguranca.getConta();
 	}
 	
 	protected Agencia getAgencia(){
 		
 		HttpServletRequest request =  (HttpServletRequest) getExternalContext().getRequest();
 		Principal principal = request.getUserPrincipal();
+	
+		Seguranca seguranca = business.logar(principal.getName(), "GERENTE");
+		
+		if(seguranca == null)
+			return null;
 		
 		return business.logar(principal.getName(), "GERENTE").getFuncionario().getAgencia();
 	}

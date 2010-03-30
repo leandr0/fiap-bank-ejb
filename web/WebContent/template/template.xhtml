@@ -77,11 +77,17 @@
 					<rich:toolBarGroup>
 						FIAP BANK
 					</rich:toolBarGroup>
+					<rich:toolBarGroup location="right"> 
+						<h:outputText value="Bem vindo :" styleClass="label-input"/>
+						<h:outputText value="#{login_mb.user}"/>
+					</rich:toolBarGroup>
 					<rich:toolBarGroup location="right">
 						<a4j:commandButton image="/resources/images/home.gif"
 								action="menu"
 								value="Menu"
 								title="Menu" />
+					</rich:toolBarGroup>
+					<rich:toolBarGroup location="right">
 						<a4j:commandButton image="/resources/images/logout.png"
 								action="#{login_mb.logout}"
 								value="Logout"
