@@ -1,1 +1,3 @@
 -Djava.security.auth.login.config=auth.conf
+
+Na pasta lib do server onde a aplicação irá rodar deve ter o commons-lang 2.4.jar
