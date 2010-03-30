@@ -8,7 +8,7 @@ import javax.ejb.Local;
 import br.com.fiap.domain.entity.Correntista;
 
 /**
- * @author User
+ * @author leandro.goncalves
  *
  */
 @Local

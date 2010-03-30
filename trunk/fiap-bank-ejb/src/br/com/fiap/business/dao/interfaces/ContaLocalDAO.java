@@ -8,7 +8,7 @@ import javax.ejb.Local;
 import br.com.fiap.domain.entity.Conta;
 
 /**
- * @author User
+ * @author leandro.goncalves
  *
  */
 @Local
