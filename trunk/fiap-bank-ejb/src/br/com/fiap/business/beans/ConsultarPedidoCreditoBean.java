@@ -44,7 +44,7 @@ public class ConsultarPedidoCreditoBean implements ConsultarPedidoCreditoRemote,
 	@Override
 	@RolesAllowed(value = "CLIENTE")
 	public List<Credito> consultarPedidosCredito(Conta conta) throws BusinessException{
-		LOG.info("Listando lista de credito para conta : "+conta.getCodigoConta());
+		LOG.info("Listando lista de credito para conta : "+( conta != null ? conta.getCodigoConta(): ""));
 		return creditoLocalDAO.listarCreditoConta(conta);
 	}
 }
