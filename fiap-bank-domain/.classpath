@@ -17,5 +17,7 @@
 			<attribute name="owner.project.facets" value="jst.java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="var" path="JBOSS_HOME/common/lib/hibernate-validator.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/fiap-bank-validator"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
