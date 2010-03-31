@@ -13,7 +13,7 @@ import br.com.fiap.domain.entity.Seguranca;
  *
  */
 @Remote
-public interface LoginRemote {
+public interface LoginRemote extends RemoteValidator{
 
 	/**
 	 * Método responsável por recuperar o usuário do sistema <p>

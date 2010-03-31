@@ -7,6 +7,8 @@ e senha.
 No eclise IDE é necessário criar um projeto "Enterprise Aplication Project" onde este irá referenciar
 os demais projetos (este projeto não foi enviado com os demais para evitar problemas de referências),
 para gerar a versão de deploy basta utilizar a opção do eclipse de exporta o arquivo .ear.
+O código fonte pode ser baixado do repositório do google code no seguinte endereço:
+		http://fiap-bank-ejb.googlecode.com/svn/trunk/
 Para acessar o sistema deve-se acessar "http://[host]:[port]/fiap-bank-web".
 O sistema irá criar as tabelas automáticamente, após o deploy da aplicação deve-se rodar o script 
 "init.sql" que está dentro da pasta conf do projeto "fiap-bank-ejb".

@@ -8,6 +8,8 @@ import javax.naming.NamingException;
 import javax.security.auth.login.LoginContext;
 import javax.security.auth.login.LoginException;
 
+import org.hibernate.validator.ClassValidator;
+import org.hibernate.validator.InvalidValue;
 import org.jboss.security.auth.callback.AppCallbackHandler;
 
 import br.com.fiap.business.interfaces.remote.AbrirContaRemote;
@@ -39,12 +41,49 @@ public class FiapBankBusinessMain {
 		
 		try {
 			
-			Credito credito = new Credito();
-			credito.setId(1L);
-			Long a = new Long(1);
-			Long b = new Long(1);
+			Correntista correntista = new Correntista();
 			
-			System.out.println(credito.getId().equals(b));
+			correntista.setGastoMensalAproximado(10.00);
+			correntista.setRendaMensal(20.00);
+			correntista.setValorTotalPatrimonio(500.00);
+			
+			Conta conta = new Conta();
+			Seguranca seguranca = new Seguranca();
+			
+			seguranca.setSenha("123");
+			
+			//conta.setSeguranca(seguranca);
+			
+			correntista.setConta(conta);
+			
+			Usuario usuario = new Usuario();
+			
+			Endereco endereco = new Endereco();
+			
+			endereco.setBairro("Bairro");
+			endereco.setCep("CEP");
+			endereco.setLogradouro("RUA");
+			endereco.setMunicipio("Municipio");
+			endereco.setNumero("45");
+			endereco.setUf("SP");
+			
+			usuario.setEndereco(endereco);
+			
+			usuario.setCpf("321678728-10");
+			usuario.setNome("Leandro");
+			usuario.setRg("32150711-3");
+			usuario.setTelefone("011 2216-9411");
+			
+			correntista.setUsuario(usuario);
+			
+			ClassValidator<Correntista> validator = new ClassValidator<Correntista>(Correntista.class);
+			for(InvalidValue values : validator.getInvalidValues(correntista)){
+				if(values.getPropertyName().equals("seguranca"))
+					System.out.println("Seguranca agora passa");
+				System.out.println(values.getMessage());
+			}
+			
+			
 			
 			//context = new InitialContext();
 			//Seguranca seguranca = logar(context);

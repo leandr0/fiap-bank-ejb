@@ -15,7 +15,7 @@ import br.com.fiap.domain.entity.Seguranca;
  *
  */
 @Remote
-public interface AbrirContaRemote {
+public interface AbrirContaRemote extends RemoteValidator{
 
 	/**
 	 * Método responsável por montar as entidades relacionas na abertura da Conta

@@ -15,7 +15,7 @@ import br.com.fiap.domain.entity.Seguranca;
  *
  */
 @Local
-public interface AbrirContaLocal {
+public interface AbrirContaLocal extends LocalValidator{
 
 	/**
 	 * Método responsável por montar as entidades relacionas na abertura da Conta

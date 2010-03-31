@@ -17,6 +17,7 @@ import br.com.fiap.business.dao.interfaces.CreditoLocalDAO;
 import br.com.fiap.business.exceptions.BusinessException;
 import br.com.fiap.business.interfaces.local.AbrirPedidoCreditoLocal;
 import br.com.fiap.business.interfaces.remote.AbrirPedidoCreditoRemote;
+import br.com.fiap.business.validator.AbrirCreditoValidator;
 import br.com.fiap.domain.entity.Conta;
 import br.com.fiap.domain.entity.Credito;
 import br.com.fiap.domain.enums.StatusCredito;
@@ -29,7 +30,7 @@ import br.com.fiap.domain.enums.StatusCredito;
 @Remote(AbrirPedidoCreditoRemote.class)
 @Local(AbrirPedidoCreditoLocal.class)
 @SecurityDomain("fiap-bank-policy")
-public class AbrirPedidoCreditoBean  implements AbrirPedidoCreditoLocal,AbrirPedidoCreditoRemote{
+public class AbrirPedidoCreditoBean extends BeanValidator implements AbrirPedidoCreditoLocal,AbrirPedidoCreditoRemote{
 	
 	@EJB
 	private CreditoLocalDAO creditoLocalDAO;
@@ -58,6 +59,16 @@ public class AbrirPedidoCreditoBean  implements AbrirPedidoCreditoLocal,AbrirPed
 	public Credito avaliarPedidoCredito(Credito credito, Conta conta) throws BusinessException{
 		
 		LOG.info("Avaliando pedido credito para conta : "+conta.getCodigoConta());
+
+		validator = new AbrirCreditoValidator();
+		
+		messageValidator = validator.validar(credito);
+		
+		if(messageValidator != null){
+			valid = false;
+			return credito;
+		}else
+			valid = true;
 		
 		double renda 		= conta.getCorrentista().getRendaMensal();
 		double gasto 		= conta.getCorrentista().getGastoMensalAproximado();
@@ -76,7 +87,7 @@ public class AbrirPedidoCreditoBean  implements AbrirPedidoCreditoLocal,AbrirPed
 		LOG.info("Credito com status "+credito.getStatusCredito()+" para conta : "+conta.getCodigoConta());
 		
 		credito.setConta(conta);
-
+		
 		return credito;
 	}
 }

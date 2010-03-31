@@ -16,7 +16,7 @@ import br.com.fiap.domain.entity.Credito;
  *
  */
 @Local
-public interface ConsultarPedidoCreditoLocal {
+public interface ConsultarPedidoCreditoLocal{
 
 	/**
 	 * Método responsável por consultar na base de dados os créditos<p>

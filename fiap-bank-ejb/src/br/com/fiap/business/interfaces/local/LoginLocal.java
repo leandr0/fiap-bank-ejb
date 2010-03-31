@@ -13,7 +13,7 @@ import br.com.fiap.domain.entity.Seguranca;
  *
  */
 @Local
-public interface LoginLocal {
+public interface LoginLocal extends LocalValidator{
 
 	/**
 	 * Método responsável por recuperar o usuário do sistema <p>

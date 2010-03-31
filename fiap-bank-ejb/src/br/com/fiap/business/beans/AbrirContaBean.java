@@ -21,6 +21,8 @@ import br.com.fiap.business.dao.interfaces.TipoContaLocalDAO;
 import br.com.fiap.business.exceptions.BusinessException;
 import br.com.fiap.business.interfaces.local.AbrirContaLocal;
 import br.com.fiap.business.interfaces.remote.AbrirContaRemote;
+import br.com.fiap.business.validator.AbrirContaPreValidator;
+import br.com.fiap.business.validator.AbrirContaValidator;
 import br.com.fiap.domain.entity.Agencia;
 import br.com.fiap.domain.entity.Conta;
 import br.com.fiap.domain.entity.Correntista;
@@ -38,7 +40,7 @@ import br.com.fiap.domain.entity.TipoConta;
 @Remote(AbrirContaRemote.class)
 @Local(AbrirContaLocal.class)
 @SecurityDomain("fiap-bank-policy")
-public class AbrirContaBean implements AbrirContaLocal,AbrirContaRemote{
+public class AbrirContaBean extends BeanValidator implements AbrirContaLocal,AbrirContaRemote{
 	
 	@EJB
 	private ContaLocalDAO contaLocalDAO;
@@ -74,6 +76,15 @@ public class AbrirContaBean implements AbrirContaLocal,AbrirContaRemote{
 		correntista.getConta().setAgencia(agencia);
 		correntista.getConta().setTipoConta(tipoConta);
 		
+		validator = new AbrirContaPreValidator();
+		
+		messageValidator = validator.validar(correntista);
+		
+		if(messageValidator != null)
+			valid = false;
+		else
+			valid = true;
+		
 		return correntista;
 	}
 
@@ -84,6 +95,18 @@ public class AbrirContaBean implements AbrirContaLocal,AbrirContaRemote{
 	@Override
 	@RolesAllowed(value = "GERENTE")
 	public void adicionarSenha(Correntista correntista,Seguranca seguranca)throws BusinessException{
+		
+		LOG.info("Validando dados");
+		
+		validator = new AbrirContaValidator();
+		
+		messageValidator = validator.validar(seguranca);
+		
+		if(messageValidator != null){
+			valid = false;
+			return;
+		}else
+			valid = true;
 		
 		LOG.info("Persistindo conta corrente");
 		
