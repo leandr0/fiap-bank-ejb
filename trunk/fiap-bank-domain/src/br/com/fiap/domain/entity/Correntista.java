@@ -10,6 +10,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.validator.NotNull;
+import org.hibernate.validator.Valid;
+
+import br.com.fiap.validator.validadores.ValueNotZero;
+
 /**
  * @author User
  * @version 1.0
@@ -25,20 +30,27 @@ public class Correntista implements EntityBasic{
 	private Long id;
 	
 	@Column(name = "RENDA_MENSAL",nullable = false)
+	@ValueNotZero(message = "A renda mensal deve ser maior que zero")
 	private Double rendaMensal;
 	
 	@Column(name = "VALOR_TOTAL_PATRIMONIO",nullable = false)
+	@ValueNotZero(message = "O valor do patrimônio total deve ser maior que zero")
 	private Double valorTotalPatrimonio;
 	
 	@Column(name = "GASTO_MENSAL_APROXIMADO",nullable = false)
+	@ValueNotZero(message = "O gasto mensal deve ser maior que zero")
 	private Double gastoMensalAproximado;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "USUARIO_ID",nullable = false)
+	@NotNull
+	@Valid
 	private Usuario usuario;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "CONTA_ID",nullable = false)
+	@NotNull
+	@Valid
 	private Conta conta;
 
 	public Correntista() {}
@@ -46,8 +58,6 @@ public class Correntista implements EntityBasic{
 	public Correntista(Usuario usuario) {
 		this.usuario = usuario;
 		this.usuario.setCorrentista(this);
-		/*this.conta = conta;
-		this.conta.setCorrentista(this);*/
 	}
 	
 	/*

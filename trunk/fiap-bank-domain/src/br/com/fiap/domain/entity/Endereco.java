@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.validator.Length;
+import org.hibernate.validator.NotNull;
+
 /**
  * @author User
  * @version 1.0
@@ -23,24 +26,36 @@ public class Endereco implements EntityBasic{
 	private Long id;
 	
 	@Column(name = "LOGRADOURO",nullable = false)
+	@NotNull(message = "O campo logradouro deve ser preenchido")
+	@Length(min = 1,message = "O campo logradouro deve ser preenchido")
 	private String logradouro;
 	
 	@Column(name = "NUMERO", nullable = false)
+	@NotNull(message = "O campo número deve ser preenchido")
+	@Length(min = 1,message = "O campo número deve ser preenchido")
 	private String  numero;
 	
 	@Column(name = "BAIRRO", nullable = false)
+	@NotNull(message = "O campo bairro deve ser preenchido")
+	@Length(min = 1,message = "O campo bairro deve ser preenchido")
 	private String bairro;
 	
 	@Column(name = "UF",length = 2, nullable = false)
+	@NotNull(message = "O campos UF de ser preenchido")
+	@Length(min = 2, max = 2,message = "O campos UF de ser preenchido corretamente")
 	private String uf;
 	
 	@Column(name = "MUNICIPIO", nullable = false)
+	@NotNull(message = "O campo municipio deve ser preenchido") 
+	@Length(min = 1,message = "O campo municipio deve ser preenchido")
 	private String municipio;
 	
 	@Column(name = "COMPLEMENTO")
 	private String complemento;
 	
 	@Column(name = "CEP", nullable = false, length = 9)
+	@NotNull(message = "O campo cep deve ser preenchido")
+	@Length(min = 8,message = "O campo cep deve ser preenchido corretamente")
 	private String cep;
 
 	@OneToOne(mappedBy = "endereco")

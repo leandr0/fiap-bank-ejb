@@ -10,6 +10,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.validator.Length;
+import org.hibernate.validator.NotNull;
+import org.hibernate.validator.Valid;
+
 /**
  * @author User
  * @version 1.0
@@ -25,19 +29,32 @@ public class Usuario implements EntityBasic{
 	private Long id;
 
 	@Column(name = "NOME", nullable = false)
+	@NotNull(message = "O Nome é obrigatório, com no mínimo 3 (três) caracteres")
+	@Length(min = 3,message = "O Nome é obrigatório, com no mínimo 3 (três) caracteres")
 	private String nome;
 	
 	@Column(name = "RG", nullable = false)
+	@NotNull(message = "O RG deve ser preenchido corretamente.Ex : '999999999' ou '99999999-9'")
+	@Length(min = 9,max = 10,
+			message = "O RG deve ser preenchido corretamente.Ex : '999999999' ou '99999999-9'")
 	private String rg;
 	
 	@Column(name = "CPF", nullable = false)
+	@NotNull(message = "O CPF deve ser preenchido corretamente.Ex : '99999999999' ou '999999999-99'")
+	@Length(min = 10, max = 12,
+			message = "O CPF deve ser preenchido corretamente.Ex : '99999999999' ou '999999999-99'")
 	private String cpf;
 	
-	@Column(name = "TELEFONE")
+	@Column(name = "TELEFONE",nullable = false)
+	@NotNull(message = "O Telefone de ser preenchido corretamente.Ex: '9999-9999' ou 'DDD 9999-9999'")
+	@Length(min = 9,max = 13,
+			message = "O Telefone de ser preenchido corretamente.Ex: '9999-9999' ou 'DDD 9999-9999'")
 	private String telefone;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ENDERECO_ID")
+	@NotNull
+	@Valid
 	private Endereco endereco;
 
 	@OneToOne(mappedBy = "usuario")
