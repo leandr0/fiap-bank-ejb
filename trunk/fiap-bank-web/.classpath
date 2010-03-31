@@ -12,10 +12,30 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="var" path="JBOSS_HOME"/>
-	<classpathentry kind="var" path="JBOSS_HOME/server/default/lib/jsf-facelets.jar"/>
-	<classpathentry kind="var" path="JBOSS_HOME/server/default/lib/richfaces-api-3.3.1.GA.jar"/>
-	<classpathentry kind="var" path="JBOSS_HOME/server/default/lib/richfaces-impl-3.3.1.GA.jar"/>
-	<classpathentry kind="var" path="JBOSS_HOME/server/default/lib/richfaces-ui-3.3.1.GA.jar"/>
+	<classpathentry kind="var" path="JBOSS_HOME">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="../"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="JBOSS_HOME/server/default/lib/jsf-facelets.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="../"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="JBOSS_HOME/server/default/lib/richfaces-api-3.3.1.GA.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="../"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="JBOSS_HOME/server/default/lib/richfaces-impl-3.3.1.GA.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="../"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="JBOSS_HOME/server/default/lib/richfaces-ui-3.3.1.GA.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="../"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

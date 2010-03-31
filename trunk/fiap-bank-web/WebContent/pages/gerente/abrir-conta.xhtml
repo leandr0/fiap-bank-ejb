@@ -20,15 +20,21 @@
 						<div id="div-numero-conta" style="display: none;">
 							<a4j:outputPanel id="panel-codigo-conta">
 								<div class="div-dados">
-									<h:panelGrid columns="2">
+									<h:panelGrid columns="2" rendered="#{abrirConta_mb.form.valid}">
 										<h:outputText value="Número da Conta:" styleClass="label-input"/>
 										<h:inputText value="#{abrirConta_mb.form.codigoConta}" disabled="true"/>
 										<h:outputLabel value="Conta criada com sucesso." styleClass="alert"/>
 									</h:panelGrid>
+									<h:outputText styleClass="alert" value="#{abrirConta_mb.form.mensagem}.Conta não cadastrada.Tente novamente."
+										rendered="#{!abrirConta_mb.form.valid}"/>
 								</div>
 								<a4j:commandButton action="#{abrirConta_mb.inicializar}" value="Confirmar" 
 										onclick="showLoad();this.disable=true;"
-										oncomplete="hideLoad();this.disable=false;"/>
+										oncomplete="hideLoad();this.disable=false;"
+										rendered="#{abrirConta_mb.form.valid}"/>
+								<a4j:commandButton rendered="#{!abrirConta_mb.form.valid}"
+											action="#{abrirConta_mb.inicializar}" value="OK"/>		
+										
 							</a4j:outputPanel>
 
 						</div>

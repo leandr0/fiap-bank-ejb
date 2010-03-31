@@ -13,6 +13,10 @@ public class AbrirContaForm {
 
 	private String codigoConta;
 	
+	private boolean valid;
+	
+	private String mensagem;
+	
 	public String getConfirmacaoSenha() {
 		return confirmacaoSenha;
 	}
@@ -27,5 +31,21 @@ public class AbrirContaForm {
 
 	public void setCodigoConta(String codigoConta) {
 		this.codigoConta = codigoConta;
+	}
+
+	public boolean isValid() {
+		return valid;
+	}
+
+	public void setValid(boolean valid) {
+		this.valid = valid;
+	}
+
+	public String getMensagem() {
+		return mensagem;
+	}
+
+	public void setMensagem(String mensagem) {
+		this.mensagem = mensagem;
 	}
 }

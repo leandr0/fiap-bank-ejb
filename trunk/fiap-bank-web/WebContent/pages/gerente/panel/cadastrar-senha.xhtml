@@ -8,13 +8,13 @@
       xmlns:a4j="http://richfaces.org/a4j">
       
     <rich:modalPanel 	id="cadastrar-senha-modal" 
-    					width="140" 
+    					width="300" 
     					height="90" 
     					autosized="true">
     					
     	<f:facet name="header">
     		<h:panelGroup>
-    			<h:outputLabel value="Cadastrar Senha"/>
+    			<h:outputLabel value="Cadastrar Conta" />
     		</h:panelGroup>
     	</f:facet>
     	
@@ -31,22 +31,28 @@
 		<a4j:form id="form-cadastrar-senha">		
 			
 			<a4j:outputPanel id="panel-cadastrar-senha">
-				<div style="margin-bottom: 10px;">
-					<h:panelGrid columns="2">
+				<div style="margin-bottom: 10px;" align="center">
+					<h:panelGrid columns="2" rendered="#{abrirConta_mb.form.valid}">
 						<h:outputLabel value="Senha:" />
 						<h:panelGrid columns="2"> 
 							<h:inputSecret value="#{abrirConta_mb.model.seguranca.senha}" />
 							<h:outputText value="*" styleClass="alert"/>
 						</h:panelGrid>
 					</h:panelGrid>
+					<h:outputText value="#{abrirConta_mb.form.mensagem}"  styleClass="alert" 
+							rendered="#{!abrirConta_mb.form.valid}" />
 				</div>
 				<div align="center">
-					<a4j:commandButton 	 
+					<a4j:commandButton 
+							rendered="#{abrirConta_mb.form.valid}"	 
 							action="#{abrirConta_mb.adicionarSenha}"
 							onclick="showLoad();this.disable=true;Richfaces.hideModalPanel('cadastrar-senha-modal');"
 							oncomplete="salvarSenha();hideLoad();this.disable=false;"
 							reRender="panel-cadastrar-senha , panel-codigo-conta"
 							value="Salvar"/>
+					<a4j:commandButton rendered="#{!abrirConta_mb.form.valid}"
+							onclick="Richfaces.hideModalPanel('cadastrar-senha-modal');"
+							value="OK"/>		
 				</div>		
 			</a4j:outputPanel>			
 		</a4j:form>
