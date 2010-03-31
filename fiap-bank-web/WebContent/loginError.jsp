@@ -4,7 +4,7 @@
 	</head>
 	<body>
 		<form method="POST" action="j_security_check">
-			<div style="padding: 20% 5% 5% 40%;width: 250px;">
+			<div style="padding: 15% 5% 5% 40%;width: 250px;">
 				<div style="background : #F5F5F5;">
 				<fieldset>
 					<legend>Dados de acesso:</legend>

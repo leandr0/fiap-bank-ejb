@@ -4,7 +4,7 @@
 	</head>
 	<body>
 		<form>
-			<div style="padding: 20% 5% 5% 40%;width: 300px;">
+			<div style="padding: 15% 5% 5% 40%;width: 300px;">
 				<div style="background : #F5F5F5;">
 				<fieldset>
 					<legend>Erro de acesso:</legend>

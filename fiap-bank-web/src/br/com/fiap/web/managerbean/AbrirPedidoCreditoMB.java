@@ -33,8 +33,11 @@ public class AbrirPedidoCreditoMB extends ManagerBean{
 
 		business.avaliarPedidoCredito(model.getCredito(), getConta());
 
-		if(!model.getCredito().getStatusCredito().equals(StatusCredito.RECUSADO))
+		if(!StatusCredito.RECUSADO.equals(model.getCredito().getStatusCredito()))
 			form.setConfirmarPedido(true);
+		
+		form.setMensagem(business.getMessageValidator());
+		form.setValid(business.isValid());
 
 		return null;
 	}

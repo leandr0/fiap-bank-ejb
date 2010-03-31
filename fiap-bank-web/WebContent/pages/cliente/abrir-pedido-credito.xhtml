@@ -23,7 +23,7 @@
 						</div>
 						<div id="div-confirmar-pedido-credito" style="display: none;" >
 							<a4j:outputPanel id="panel-acao-credito">
-								<h:panelGrid columns="3">
+								<h:panelGrid columns="3" rendered="#{abrirPedidoCredito_mb.form.valid}">
 										<a4j:commandButton  
 											value="Novo Pedido"
 											onclick="showLoad();this.disable=true;"
@@ -43,6 +43,9 @@
 											reRender="panel-dados-pedido-credito" 
 											oncomplete="novoCredito();hideLoad();this.disable=false;"/>
 									</h:panelGrid>
+									<a4j:commandButton  value="OK"  
+											rendered="#{!abrirPedidoCredito_mb.form.valid}"
+											onclick="novoCredito();"/>
 							</a4j:outputPanel>	
 						</div>
 					</div>

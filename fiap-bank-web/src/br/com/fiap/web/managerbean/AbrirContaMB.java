@@ -30,6 +30,9 @@ public class AbrirContaMB extends ManagerBean{
 
 		business.abrirConta(model.getCorrentista(),getAgencia());
 		
+		form.setValid(business.isValid());
+		form.setMensagem(business.getMessageValidator());
+		
 		return null;
 	}
 
@@ -39,6 +42,9 @@ public class AbrirContaMB extends ManagerBean{
 
 		form.setCodigoConta(model.getCorrentista().getConta().getCodigoConta());
 
+		form.setValid(business.isValid());
+		form.setMensagem(business.getMessageValidator());
+		
 		return null;
 	}
 
