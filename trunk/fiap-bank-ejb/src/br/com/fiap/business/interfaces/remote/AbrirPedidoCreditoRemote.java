@@ -14,7 +14,7 @@ import br.com.fiap.domain.entity.Credito;
  *
  */
 @Remote
-public interface AbrirPedidoCreditoRemote {
+public interface AbrirPedidoCreditoRemote extends RemoteValidator{
 
 
 	/**

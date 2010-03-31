@@ -27,7 +27,7 @@ import br.com.fiap.domain.entity.Seguranca;
 @Remote(LoginRemote.class)
 @Local(LoginLocal.class)
 @SecurityDomain("fiap-bank-policy")
-public class LoginBean implements LoginLocal, LoginRemote {
+public class LoginBean extends BeanValidator implements LoginLocal, LoginRemote {
 
 	@EJB
 	private SegurancaLocalDAO segurancaLocalDAO;

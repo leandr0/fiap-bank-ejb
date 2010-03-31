@@ -15,7 +15,7 @@ import br.com.fiap.domain.entity.Credito;
  *
  */
 @Local
-public interface AvaliarPedidosCreditoLocal {
+public interface AvaliarPedidosCreditoLocal{
 
 	/**
 	 *  Método recupera na base de dados todos os créditos com status SUJEITO_A_APROVACAO

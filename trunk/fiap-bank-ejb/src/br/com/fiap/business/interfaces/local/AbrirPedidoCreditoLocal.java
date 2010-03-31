@@ -14,7 +14,7 @@ import br.com.fiap.domain.entity.Credito;
  *
  */
 @Local
-public interface AbrirPedidoCreditoLocal {
+public interface AbrirPedidoCreditoLocal extends LocalValidator{
 
 
 	/**

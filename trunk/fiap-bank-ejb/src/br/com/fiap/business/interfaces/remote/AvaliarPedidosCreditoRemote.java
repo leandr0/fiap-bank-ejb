@@ -15,7 +15,7 @@ import br.com.fiap.domain.entity.Credito;
  *
  */
 @Remote
-public interface AvaliarPedidosCreditoRemote {
+public interface AvaliarPedidosCreditoRemote{
 
 	/**
 	 *  Método recupera na base de dados todos os créditos com status SUJEITO_A_APROVACAO

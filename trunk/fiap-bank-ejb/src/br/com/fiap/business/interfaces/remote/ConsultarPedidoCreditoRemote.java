@@ -16,7 +16,7 @@ import br.com.fiap.domain.entity.Credito;
  *
  */
 @Remote
-public interface ConsultarPedidoCreditoRemote {
+public interface ConsultarPedidoCreditoRemote{
 
 	/**
 	 * Método responsável por consultar na base de dados os créditos<p>
