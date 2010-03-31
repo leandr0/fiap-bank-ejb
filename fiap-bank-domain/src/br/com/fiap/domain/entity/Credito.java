@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import br.com.fiap.domain.enums.StatusCredito;
+import br.com.fiap.validator.validadores.ValueNotZero;
 
 /**
  * @author leandro.goncalves
@@ -34,9 +35,11 @@ public class Credito implements EntityBasic {
 	private StatusCredito statusCredito; 
 	
 	@Column(name = "VALOR_CREDITO", nullable = false)
+	@ValueNotZero(message = "O valor do crédito deve ser maior que zero")
 	private Double valorCredito;
 	
 	@Column(name = "NR_MESES_PAGAMENTO",nullable = false)
+	@ValueNotZero(message = "O número de meses deve ser maior que zero")
 	private Integer numeroMesesPagamento;
 	
 	@ManyToOne

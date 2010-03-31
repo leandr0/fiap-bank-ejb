@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.validator.Length;
+import org.hibernate.validator.NotNull;
+
 /**
  * @author User
  * @version 1.0
@@ -23,6 +26,8 @@ public class Seguranca implements EntityBasic{
 	private Long id;
 
 	@Column(name = "SENHA", nullable = false)
+	@NotNull( message = "Deve ser informada uma senha")
+	@Length(min = 1,max = 20, message = "Deve ser informada uma senha")
 	private String senha;
 	
 	@Column(name = "FRASE_SECRETA")
