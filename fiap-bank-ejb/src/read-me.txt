@@ -1,4 +1,16 @@
 Este projeto foi desenvolvido com o jboss-5.1.0.GA.
+Na pasta lib do servidor é necessário conter as seguintes bibliotecas:
+	commons-beanutils.jar
+	commons-digester.jar
+	commons-lang-2.4.jar
+	mysql-connector-java-5.1.6-bin.jar
+	jsf-facelets.jar (na versão 1.1.15)
+	richfaces-ui-3.3.1.GA.jar
+	richfaces-api-3.3.1.GA.jar
+	richfaces-impl-3.3.1.GA.jar
+	
+No desenvolvimento foi utilizado o server "default"	e as bibliotecas acima estavam contidas
+dentro da pasta lib deste server.
 Antes de subir a aplicação deve ser criado um novo Schema no mysql com o nome de "fiap_bank_ejb"
 Os arquivos de configuração como o "login-config.xml" e "mysql-ds.xml" estão dentro da pasta
 conf do projeto "fiap-bank-ejb",o unico arquivo que pode necessitar alguma modificação é o
@@ -18,19 +30,6 @@ os dados de acesso são respectivamente :
 	senha: gerente
 	login: 000001
 	senha: cliente
-
-Na pasta lib do servidor é necessário conter as seguintes bibliotecas:
-	commons-beanutils.jar
-	commons-digester.jar
-	commons-lang-2.4.jar
-	mysql-connector-java-5.1.6-bin.jar
-	jsf-facelets.jar (na versão 1.1.15)
-	richfaces-ui-3.3.1.GA.jar
-	richfaces-api-3.3.1.GA.jar
-	richfaces-impl-3.3.1.GA.jar
-	
-No desenvolvimento foi utilizado o server "default"	e as bibliotecas acima estavam contidas
-dentro da pasta lib deste server.
 	
 Na aplicação existe uma barra de menu onde na margem superior direita existem dois botões um que direciona 
 para a tela inicial e outro responsável pelo logout. 	
