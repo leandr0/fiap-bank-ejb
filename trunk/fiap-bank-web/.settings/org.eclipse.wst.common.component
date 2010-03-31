@@ -30,15 +30,6 @@
         <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/web/WebContent/WEB-INF/lib/richfaces-ui-3.3.1.GA.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="fiap-bank-domain.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/fiap-bank-domain/fiap-bank-domain">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="fiap-bank-ejb.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/fiap-bank-ejb/fiap-bank-ejb">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="fiap-bank-validator.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/fiap-bank-validator/fiap-bank-validator">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <property name="java-output-path"/>
         <property name="context-root" value="fiap-bank-web"/>
     </wb-module>
