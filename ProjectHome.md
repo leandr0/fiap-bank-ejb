@@ -1,0 +1,1 @@
+Projeto para exemplificar melhor o conceito EJB
